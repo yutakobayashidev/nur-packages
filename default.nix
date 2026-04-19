@@ -19,7 +19,16 @@
   # flakeModules = { }; # flake-parts modules
   overlays = import ./overlays; # nixpkgs overlays
 
-  example-package = pkgs.callPackage ./pkgs/example-package { };
-  # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
-  # ...
+  bit-vcs = pkgs.callPackage ./pkgs/bit-vcs { };
+  continues = pkgs.callPackage ./pkgs/continues { };
+  difit = pkgs.callPackage ./pkgs/difit { };
+  git-now = pkgs.callPackage ./pkgs/git-now { };
+  jj-desc = pkgs.callPackage ./pkgs/jj-desc { };
+  keifu = pkgs.callPackage ./pkgs/keifu { };
+  opensrc = pkgs.callPackage ./pkgs/opensrc { };
+  polycat = pkgs.callPackage ./pkgs/polycat { };
+  pretty-ts-errors-markdown = pkgs.callPackage ./pkgs/pretty-ts-errors-markdown { };
+  readout = pkgs.callPackage ./pkgs/readout { };
+  similarity-ts = pkgs.callPackage ./pkgs/similarity-ts { };
+  tunnelto = pkgs.callPackage ./pkgs/tunnelto { };
 }
