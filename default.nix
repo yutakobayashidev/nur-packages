@@ -29,6 +29,7 @@
   polycat = pkgs.callPackage ./pkgs/polycat { };
   pretty-ts-errors-markdown = pkgs.callPackage ./pkgs/pretty-ts-errors-markdown { };
   readout = pkgs.callPackage ./pkgs/readout { };
+  roots = pkgs.callPackage ./pkgs/roots { };
   similarity-ts = pkgs.callPackage ./pkgs/similarity-ts { };
   tunnelto = pkgs.callPackage ./pkgs/tunnelto { };
 }
