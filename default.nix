@@ -32,4 +32,5 @@
   roots = pkgs.callPackage ./pkgs/roots { };
   similarity-ts = pkgs.callPackage ./pkgs/similarity-ts { };
   tunnelto = pkgs.callPackage ./pkgs/tunnelto { };
+  waza = pkgs.callPackage ./pkgs/waza { };
 }

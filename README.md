@@ -17,6 +17,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `roots`
 - `similarity-ts`
 - `tunnelto`
+- `waza`
 
 ## Usage
 
