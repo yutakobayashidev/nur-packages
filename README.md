@@ -16,6 +16,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `readout`
 - `roots`
 - `similarity-ts`
+- `symphony`
 - `tunnelto`
 - `waza`
 

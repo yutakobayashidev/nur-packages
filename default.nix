@@ -31,6 +31,7 @@
   readout = pkgs.callPackage ./pkgs/readout { };
   roots = pkgs.callPackage ./pkgs/roots { };
   similarity-ts = pkgs.callPackage ./pkgs/similarity-ts { };
+  symphony = pkgs.callPackage ./pkgs/symphony { };
   tunnelto = pkgs.callPackage ./pkgs/tunnelto { };
   waza = pkgs.callPackage ./pkgs/waza { };
 }
