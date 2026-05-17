@@ -26,8 +26,15 @@ stdenv.mkDerivation (finalAttrs: {
     git
   ];
 
+  postPatch = ''
+    substituteInPlace vite.config.ts \
+      --replace-fail "http://localhost:4966" "http://127.0.0.1:4966" \
+      --replace-fail "server: {" "server: { host: '127.0.0.1',"
+  '';
+
   pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs) pname version src;
+    pnpm = pnpm_10;
     hash = "sha256-ze7Z/qV3RYmqrmsdSDLHdbpN9UOZl+68qHxj2Doalio=";
     fetcherVersion = 3;
   };
@@ -37,6 +44,8 @@ stdenv.mkDerivation (finalAttrs: {
     pnpm build
     runHook postBuild
   '';
+
+  dontStrip = true;
 
   installPhase = ''
     runHook preInstall
