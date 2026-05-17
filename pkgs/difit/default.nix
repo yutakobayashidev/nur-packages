@@ -10,13 +10,13 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "difit";
-  version = "4.0.3";
+  version = "5.0.1";
 
   src = fetchFromGitHub {
     owner = "yoshiko-pg";
     repo = "difit";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-FXxHxujI1hM0LmWm+y9dFiQdtU9GmQmwrbDsegGlSwk=";
+    hash = "sha256-IV7SuTTLfZkS/pEpXOCMYwPLDNHdQJ71jJjYYjD1c6I=";
   };
 
   nativeBuildInputs = [
@@ -28,7 +28,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs) pname version src;
-    hash = "sha256-gL/nQnJSk3PyaAXINq7wzECc2FtVcCTcc3k/I0MH5gU=";
+    hash = "";
     fetcherVersion = 3;
   };
 
