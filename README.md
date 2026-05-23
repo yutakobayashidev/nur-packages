@@ -5,6 +5,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 ## Packages
 
 - `bit-vcs`
+- `bumblebee`
 - `continues`
 - `difit`
 - `git-now`
