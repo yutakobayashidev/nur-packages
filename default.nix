@@ -34,5 +34,6 @@
   similarity-ts = pkgs.callPackage ./pkgs/similarity-ts { };
   symphony = pkgs.callPackage ./pkgs/symphony { };
   tunnelto = pkgs.callPackage ./pkgs/tunnelto { };
+  nxapi = pkgs.callPackage ./pkgs/nxapi { };
   waza = pkgs.callPackage ./pkgs/waza { };
 }
