@@ -22,7 +22,6 @@
   overlays = import ./overlays; # nixpkgs overlays
 
   bit-vcs = pkgs.callPackage ./pkgs/bit-vcs { };
-  archivebox = pkgs.callPackage ./pkgs/archivebox { };
   bumblebee = pkgs.callPackage ./pkgs/bumblebee { };
   continues = pkgs.callPackage ./pkgs/continues { };
   difit = pkgs.callPackage ./pkgs/difit { };
