@@ -18,10 +18,6 @@ buildGoModule rec {
 
   doCheck = false;
 
-  postPatch = ''
-    sed -i 's/go 1\.26\.[0-9]*/go 1.26.1/' go.mod
-  '';
-
   ldflags = [
     "-s"
     "-w"
