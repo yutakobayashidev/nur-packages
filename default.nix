@@ -26,6 +26,7 @@
   continues = pkgs.callPackage ./pkgs/continues { };
   difit = pkgs.callPackage ./pkgs/difit { };
   git-now = pkgs.callPackage ./pkgs/git-now { };
+  headroom-ai = pkgs.callPackage ./pkgs/headroom-ai { };
   jj-desc = pkgs.callPackage ./pkgs/jj-desc { };
   keifu = pkgs.callPackage ./pkgs/keifu { };
   opensrc = pkgs.callPackage ./pkgs/opensrc { };
