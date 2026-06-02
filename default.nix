@@ -37,5 +37,6 @@
   symphony = pkgs.callPackage ./pkgs/symphony { };
   tunnelto = pkgs.callPackage ./pkgs/tunnelto { };
   nxapi = pkgs.callPackage ./pkgs/nxapi { };
+  pike = pkgs.callPackage ./pkgs/pike { };
   waza = pkgs.callPackage ./pkgs/waza { };
 }
