@@ -30,7 +30,7 @@ rustPlatform.buildRustPackage rec {
     description = "Context optimization layer for LLM applications";
     homepage = "https://github.com/chopratejas/headroom";
     license = licenses.asl20;
-    mainProgram = "headroom";
+    mainProgram = "headroom-proxy";
     platforms = platforms.linux;
   };
 }
