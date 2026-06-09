@@ -34,6 +34,7 @@
   pretty-ts-errors-markdown = pkgs.callPackage ./pkgs/pretty-ts-errors-markdown { };
   readout = pkgs.callPackage ./pkgs/readout { };
   roots = pkgs.callPackage ./pkgs/roots { };
+  s3s = pkgs.callPackage ./pkgs/s3s { };
   similarity-ts = pkgs.callPackage ./pkgs/similarity-ts { };
   symphony = pkgs.callPackage ./pkgs/symphony { };
   tunnelto = pkgs.callPackage ./pkgs/tunnelto { };
