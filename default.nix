@@ -26,19 +26,25 @@
   continues = pkgs.callPackage ./pkgs/continues { };
   difit = pkgs.callPackage ./pkgs/difit { };
   git-now = pkgs.callPackage ./pkgs/git-now { };
+  hermes = pkgs.callPackage ./pkgs/hermes { };
   headroom-ai = pkgs.callPackage ./pkgs/headroom-ai { };
   jj-desc = pkgs.callPackage ./pkgs/jj-desc { };
   keifu = pkgs.callPackage ./pkgs/keifu { };
   opensrc = pkgs.callPackage ./pkgs/opensrc { };
   polycat = pkgs.callPackage ./pkgs/polycat { };
   pretty-ts-errors-markdown = pkgs.callPackage ./pkgs/pretty-ts-errors-markdown { };
+  pyproject-build-systems = pkgs.callPackage ./pkgs/pyproject-build-systems { };
+  pyproject-nix = pkgs.callPackage ./pkgs/pyproject-nix { };
   readout = pkgs.callPackage ./pkgs/readout { };
   roots = pkgs.callPackage ./pkgs/roots { };
   s3s = pkgs.callPackage ./pkgs/s3s { };
   similarity-ts = pkgs.callPackage ./pkgs/similarity-ts { };
+  skill-scanner = pkgs.callPackage ./pkgs/skill-scanner { };
+  skillspector = pkgs.callPackage ./pkgs/skillspector { };
   symphony = pkgs.callPackage ./pkgs/symphony { };
   tunnelto = pkgs.callPackage ./pkgs/tunnelto { };
   nxapi = pkgs.callPackage ./pkgs/nxapi { };
+  uv2nix = pkgs.callPackage ./pkgs/uv2nix { };
   pike = pkgs.callPackage ./pkgs/pike { };
   waza = pkgs.callPackage ./pkgs/waza { };
 }

@@ -14,11 +14,16 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `opensrc`
 - `polycat`
 - `pretty-ts-errors-markdown`
+- `pyproject-build-systems`
+- `pyproject-nix`
 - `readout`
 - `roots`
 - `similarity-ts`
+- `skill-scanner`
+- `skillspector`
 - `symphony`
 - `tunnelto`
+- `uv2nix`
 - `waza`
 
 ## Usage
