@@ -6,6 +6,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 
 - `bit-vcs`
 - `bumblebee`
+- `cliproxyapi`
 - `continues`
 - `difit`
 - `git-now`
