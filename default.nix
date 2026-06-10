@@ -23,7 +23,6 @@
 
   bit-vcs = pkgs.callPackage ./pkgs/bit-vcs { };
   bumblebee = pkgs.callPackage ./pkgs/bumblebee { };
-  cliproxyapi = pkgs.callPackage ./pkgs/cliproxyapi { };
   continues = pkgs.callPackage ./pkgs/continues { };
   difit = pkgs.callPackage ./pkgs/difit { };
   git-now = pkgs.callPackage ./pkgs/git-now { };
