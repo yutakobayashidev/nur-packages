@@ -29,6 +29,7 @@ in
   bumblebee = pkgs.callPackage ./pkgs/bumblebee { };
   continues = pkgs.callPackage ./pkgs/continues { };
   difit = pkgs.callPackage ./pkgs/difit { };
+  fennel-ls = pkgs.callPackage ./pkgs/fennel-ls { };
   git-now = pkgs.callPackage ./pkgs/git-now { };
   ghtkn = pkgs.callPackage ./pkgs/ghtkn { };
   hermes = pkgs.callPackage ./pkgs/hermes { };
