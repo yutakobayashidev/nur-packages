@@ -11,6 +11,9 @@
   pkgs ? import <nixpkgs> { },
 }:
 
+let
+  jportaudio = pkgs.callPackage ./pkgs/jportaudio { };
+in
 {
   # The `lib`, `overlays`, `nixosModules`, `homeModules`,
   # `darwinModules` and `flakeModules` names are special
@@ -21,6 +24,7 @@
   # flakeModules = { }; # flake-parts modules
   overlays = import ./overlays; # nixpkgs overlays
 
+  beatoraja = pkgs.callPackage ./pkgs/beatoraja { inherit jportaudio; };
   bit-vcs = pkgs.callPackage ./pkgs/bit-vcs { };
   bumblebee = pkgs.callPackage ./pkgs/bumblebee { };
   continues = pkgs.callPackage ./pkgs/continues { };
@@ -29,6 +33,7 @@
   hermes = pkgs.callPackage ./pkgs/hermes { };
   headroom-ai = pkgs.callPackage ./pkgs/headroom-ai { };
   jj-desc = pkgs.callPackage ./pkgs/jj-desc { };
+  inherit jportaudio;
   keifu = pkgs.callPackage ./pkgs/keifu { };
   opensrc = pkgs.callPackage ./pkgs/opensrc { };
   polycat = pkgs.callPackage ./pkgs/polycat { };

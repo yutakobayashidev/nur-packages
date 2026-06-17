@@ -4,12 +4,14 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 
 ## Packages
 
+- `beatoraja`
 - `bit-vcs`
 - `bumblebee`
 - `continues`
 - `difit`
 - `git-now`
 - `jj-desc`
+- `jportaudio`
 - `keifu`
 - `opensrc`
 - `polycat`
