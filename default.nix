@@ -30,6 +30,7 @@ in
   continues = pkgs.callPackage ./pkgs/continues { };
   difit = pkgs.callPackage ./pkgs/difit { };
   git-now = pkgs.callPackage ./pkgs/git-now { };
+  ghtkn = pkgs.callPackage ./pkgs/ghtkn { };
   hermes = pkgs.callPackage ./pkgs/hermes { };
   headroom-ai = pkgs.callPackage ./pkgs/headroom-ai { };
   jj-desc = pkgs.callPackage ./pkgs/jj-desc { };
