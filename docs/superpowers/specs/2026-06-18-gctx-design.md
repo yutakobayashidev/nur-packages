@@ -24,6 +24,9 @@ This makes the packaged command self-contained with respect to its executable
 dependencies while preserving the user's existing Google Cloud CLI
 configuration.
 
+The script uses Babashka's bundled `cheshire.core` namespace for JSON parsing,
+so no separate Babashka dependency configuration is required.
+
 ## Behavior
 
 - `gctx` lists named Google Cloud CLI configurations as JSON, presents them
@@ -32,6 +35,8 @@ configuration.
 - `gctx --help` prints usage information.
 - Canceling `fzf` or selecting no entry does not activate a configuration.
 - Failures from `gcloud` are printed to standard error.
+- The selected line only has trailing newline characters removed, preserving
+  the leading marker used to map an inactive configuration back to its name.
 
 ## Packaging
 

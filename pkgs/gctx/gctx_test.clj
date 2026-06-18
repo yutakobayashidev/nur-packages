@@ -48,7 +48,13 @@
             (pr-str switch-result)))
       (when (fs/exists? activation-log)
         (is (= "config configurations activate development"
-               (string/trim (slurp (str activation-log)))))))))
+               (string/trim (slurp (str activation-log))))))
+
+      (fs/delete-if-exists activation-log)
+      (write-executable (fs/path tmp "fzf") "#!/bin/sh\nexit 1\n")
+      (let [cancel-result (run-gctx tmp)]
+        (is (zero? (:exit cancel-result)))
+        (is (not (fs/exists? activation-log)))))))
 
 (let [{:keys [fail error]} (run-tests)]
   (System/exit (if (zero? (+ fail error)) 0 1)))
