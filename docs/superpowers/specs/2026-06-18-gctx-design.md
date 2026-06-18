@@ -56,8 +56,8 @@ Verification consists of:
 1. Evaluating the package attribute.
 2. Building the `gctx` derivation.
 3. Running the built `gctx --help`.
-4. Running the source script with a controlled fake `gcloud` command to verify
-   JSON parsing and current-configuration output without requiring live Google
-   Cloud credentials.
+4. Running Babashka tests using `clojure.test` and controlled fake `gcloud`
+   and `fzf` commands to verify help output, JSON parsing, current-configuration
+   output, and activation without requiring live Google Cloud credentials.
 5. Confirming the repository diff only includes the intended package,
    registration, documentation, design, and test-related changes.
