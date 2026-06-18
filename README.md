@@ -9,6 +9,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `bumblebee`
 - `continues`
 - `difit`
+- `gctx`
 - `git-now`
 - `jj-desc`
 - `jportaudio`
