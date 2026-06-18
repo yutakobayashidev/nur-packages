@@ -25,6 +25,7 @@ in
   overlays = import ./overlays; # nixpkgs overlays
 
   beatoraja = pkgs.callPackage ./pkgs/beatoraja { inherit jportaudio; };
+  before-and-after = pkgs.callPackage ./pkgs/before-and-after { };
   bit-vcs = pkgs.callPackage ./pkgs/bit-vcs { };
   bumblebee = pkgs.callPackage ./pkgs/bumblebee { };
   continues = pkgs.callPackage ./pkgs/continues { };
