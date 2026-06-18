@@ -11,10 +11,12 @@
 
 (defn run-gctx [tmp & args]
   (let [path (str tmp ":" (System/getenv "PATH"))
-        activation-log (str (fs/path tmp "activation"))]
+        activation-log (str (fs/path tmp "activation"))
+        fzf-log (str (fs/path tmp "fzf-input"))]
     @(p/process (into ["bb" script] args)
                 {:env {"PATH" path
-                       "GCTX_ACTIVATION_LOG" activation-log}
+                       "GCTX_ACTIVATION_LOG" activation-log
+                       "GCTX_FZF_LOG" fzf-log}
                  :out :string
                  :err :string})))
 
@@ -25,7 +27,7 @@
      "#!/bin/sh\nif [ \"$*\" = \"config configurations list --format=json\" ]; then\n  printf '%s\\n' '[{\"name\":\"development\",\"is_active\":false,\"properties\":{\"core\":{\"project\":\"dev-project\",\"account\":\"dev@example.com\"}}},{\"name\":\"production\",\"is_active\":true,\"properties\":{\"core\":{\"project\":\"prod-project\",\"account\":\"prod@example.com\"}}}]'\nelif [ \"$*\" = \"config configurations activate development\" ]; then\n  printf '%s\\n' \"$*\" > \"$GCTX_ACTIVATION_LOG\"\nelse\n  exit 1\nfi\n")
     (write-executable
      (fs/path tmp "fzf")
-     "#!/bin/sh\ngrep development\n")
+     "#!/bin/sh\ntee \"$GCTX_FZF_LOG\" | grep development\n")
 
     (let [help-result (run-gctx tmp "--help")
           current-result (run-gctx tmp "--current")
@@ -38,8 +40,12 @@
       (is (= "production" (string/trim (:out current-result))))
       (is (zero? (:exit switch-result)))
       (is (= "switched to development"
-             (string/trim (:out switch-result))))
-      (is (fs/exists? activation-log))
+             (string/trim (:out switch-result)))
+          (:err switch-result))
+      (is (fs/exists? activation-log)
+          (if (fs/exists? (fs/path tmp "fzf-input"))
+            (slurp (str (fs/path tmp "fzf-input")))
+            (pr-str switch-result)))
       (when (fs/exists? activation-log)
         (is (= "config configurations activate development"
                (string/trim (slurp (str activation-log)))))))))
