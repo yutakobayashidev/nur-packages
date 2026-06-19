@@ -24,6 +24,7 @@ in
   # flakeModules = { }; # flake-parts modules
   overlays = import ./overlays; # nixpkgs overlays
 
+  agent-scan = pkgs.callPackage ./pkgs/agent-scan { };
   beatoraja = pkgs.callPackage ./pkgs/beatoraja { inherit jportaudio; };
   before-and-after = pkgs.callPackage ./pkgs/before-and-after { };
   bit-vcs = pkgs.callPackage ./pkgs/bit-vcs { };
