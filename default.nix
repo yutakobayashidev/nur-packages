@@ -45,6 +45,7 @@ in
   pyproject-build-systems = pkgs.callPackage ./pkgs/pyproject-build-systems { };
   pyproject-nix = pkgs.callPackage ./pkgs/pyproject-nix { };
   readout = pkgs.callPackage ./pkgs/readout { };
+  tfmv = pkgs.callPackage ./pkgs/tfmv { };
   roots = pkgs.callPackage ./pkgs/roots { };
   s3s = pkgs.callPackage ./pkgs/s3s { };
   similarity-ts = pkgs.callPackage ./pkgs/similarity-ts { };

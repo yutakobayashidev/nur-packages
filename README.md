@@ -21,6 +21,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `pyproject-nix`
 - `readout`
 - `roots`
+- `tfmv`
 - `similarity-ts`
 - `skill-scanner`
 - `skillspector`
