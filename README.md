@@ -8,6 +8,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `bit-vcs`
 - `bumblebee`
 - `continues`
+- `defuddle`
 - `difit`
 - `gctx`
 - `git-now`

@@ -30,6 +30,7 @@ in
   bit-vcs = pkgs.callPackage ./pkgs/bit-vcs { };
   bumblebee = pkgs.callPackage ./pkgs/bumblebee { };
   continues = pkgs.callPackage ./pkgs/continues { };
+  defuddle = pkgs.callPackage ./pkgs/defuddle { };
   difit = pkgs.callPackage ./pkgs/difit { };
   fennel-ls = pkgs.callPackage ./pkgs/fennel-ls { };
   gctx = pkgs.callPackage ./pkgs/gctx { };
