@@ -58,5 +58,6 @@ in
   nxapi = pkgs.callPackage ./pkgs/nxapi { };
   uv2nix = pkgs.callPackage ./pkgs/uv2nix { };
   pike = pkgs.callPackage ./pkgs/pike { };
+  whichllm = pkgs.callPackage ./pkgs/whichllm { };
   waza = pkgs.callPackage ./pkgs/waza { };
 }
