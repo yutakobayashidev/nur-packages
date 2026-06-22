@@ -1,12 +1,10 @@
 {
   buildNpmPackage,
   fetchFromGitHub,
-  nodejs_20,
 }:
 buildNpmPackage {
   pname = "atcoder-cli";
   version = "2.2.0";
-  nodejs = nodejs_20;
   npmInstallFlags = [ "--omit=optional" ];
   npmPruneFlags = [ "--omit=optional" ];
 
