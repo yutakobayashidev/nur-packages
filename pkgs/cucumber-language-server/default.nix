@@ -17,6 +17,9 @@ buildNpmPackage rec {
 
   npmDepsHash = "sha256-sjoj7OLZcvFf0g/6kjhWgt/bUNKbbvYqBszNDYHxf4A=";
 
+  npmInstallFlags = [ "--ignore-scripts" ];
+  npmRebuildFlags = [ "--ignore-scripts" ];
+
   npmBuildScript = "build";
 
   meta = {
