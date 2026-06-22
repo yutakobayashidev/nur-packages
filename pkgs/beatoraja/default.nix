@@ -195,6 +195,8 @@ stdenv.mkDerivation (finalAttrs: {
     })
   ];
 
+  preferLocalBuild = true;
+
   meta =
     if overrideDerivation != null then
       overrideDerivation.meta
