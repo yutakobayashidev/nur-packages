@@ -43,6 +43,7 @@ in
   difit = pkgs.callPackage ./pkgs/difit { };
   fennel-ls = pkgs.callPackage ./pkgs/fennel-ls { };
   gctx = pkgs.callPackage ./pkgs/gctx { };
+  gh-actions-language-server = pkgs.callPackage ./pkgs/gh-actions-language-server { };
   git-now = pkgs.callPackage ./pkgs/git-now { };
   ghtkn = pkgs.callPackage ./pkgs/ghtkn { };
   hermes = pkgs.callPackage ./pkgs/hermes { };

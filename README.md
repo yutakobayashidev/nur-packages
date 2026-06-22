@@ -15,6 +15,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `defuddle`
 - `difit`
 - `gctx`
+- `gh-actions-language-server`
 - `git-now`
 - `jj-desc`
 - `jportaudio`
