@@ -20,6 +20,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `jj-desc`
 - `jportaudio`
 - `keifu`
+- `man-pages-ja`
 - `opensrc`
 - `polycat`
 - `pretty-ts-errors-markdown`

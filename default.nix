@@ -51,6 +51,7 @@ in
   jj-desc = pkgs.callPackage ./pkgs/jj-desc { };
   inherit jportaudio;
   keifu = pkgs.callPackage ./pkgs/keifu { };
+  man-pages-ja = pkgs.callPackage ./pkgs/man-pages-ja { };
   opensrc = pkgs.callPackage ./pkgs/opensrc { };
   polycat = pkgs.callPackage ./pkgs/polycat { };
   pretty-ts-errors-markdown = pkgs.callPackage ./pkgs/pretty-ts-errors-markdown { };
