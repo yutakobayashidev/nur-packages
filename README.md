@@ -4,6 +4,9 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 
 ## Packages
 
+- `acac-cli`
+- `aclogin`
+- `atcoder-cli`
 - `beatoraja`
 - `bit-vcs`
 - `bumblebee`

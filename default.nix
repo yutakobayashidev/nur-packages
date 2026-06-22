@@ -13,6 +13,12 @@
 
 let
   jportaudio = pkgs.callPackage ./pkgs/jportaudio { };
+  acacCliPlatforms = [
+    "aarch64-darwin"
+    "aarch64-linux"
+    "x86_64-darwin"
+    "x86_64-linux"
+  ];
 in
 {
   # The `lib`, `overlays`, `nixosModules`, `homeModules`,
@@ -24,7 +30,9 @@ in
   # flakeModules = { }; # flake-parts modules
   overlays = import ./overlays; # nixpkgs overlays
 
+  aclogin = pkgs.callPackage ./pkgs/aclogin { };
   agent-scan = pkgs.callPackage ./pkgs/agent-scan { };
+  atcoder-cli = pkgs.callPackage ./pkgs/atcoder-cli { };
   beatoraja = pkgs.callPackage ./pkgs/beatoraja { inherit jportaudio; };
   before-and-after = pkgs.callPackage ./pkgs/before-and-after { };
   bit-vcs = pkgs.callPackage ./pkgs/bit-vcs { };
@@ -60,4 +68,7 @@ in
   pike = pkgs.callPackage ./pkgs/pike { };
   whichllm = pkgs.callPackage ./pkgs/whichllm { };
   waza = pkgs.callPackage ./pkgs/waza { };
+}
+// pkgs.lib.optionalAttrs (pkgs.lib.elem pkgs.stdenv.hostPlatform.system acacCliPlatforms) {
+  acac-cli = pkgs.callPackage ./pkgs/acac-cli { };
 }
