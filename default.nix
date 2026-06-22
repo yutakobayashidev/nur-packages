@@ -38,6 +38,7 @@ in
   bit-vcs = pkgs.callPackage ./pkgs/bit-vcs { };
   bumblebee = pkgs.callPackage ./pkgs/bumblebee { };
   continues = pkgs.callPackage ./pkgs/continues { };
+  cucumber-language-server = pkgs.callPackage ./pkgs/cucumber-language-server { };
   defuddle = pkgs.callPackage ./pkgs/defuddle { };
   difit = pkgs.callPackage ./pkgs/difit { };
   fennel-ls = pkgs.callPackage ./pkgs/fennel-ls { };

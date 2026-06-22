@@ -11,6 +11,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `bit-vcs`
 - `bumblebee`
 - `continues`
+- `cucumber-language-server`
 - `defuddle`
 - `difit`
 - `gctx`
