@@ -2,12 +2,12 @@
   config,
   lib,
   pkgs,
-  currentSystemUser ? null,
   ...
 }:
 
 let
   cfg = config.services.birdclaw;
+  currentSystemUser = config._module.args.currentSystemUser or null;
 in
 {
   options.services.birdclaw = {
