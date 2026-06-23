@@ -8,6 +8,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `aclogin`
 - `atcoder-cli`
 - `beatoraja`
+- `birdclaw`
 - `bit-vcs`
 - `bumblebee`
 - `continues`
