@@ -35,7 +35,6 @@ in
   atcoder-cli = pkgs.callPackage ./pkgs/atcoder-cli { };
   beatoraja = pkgs.callPackage ./pkgs/beatoraja { inherit jportaudio; };
   before-and-after = pkgs.callPackage ./pkgs/before-and-after { };
-  birdclaw = pkgs.callPackage ./pkgs/birdclaw { };
   bit-vcs = pkgs.callPackage ./pkgs/bit-vcs { };
   bumblebee = pkgs.callPackage ./pkgs/bumblebee { };
   continues = pkgs.callPackage ./pkgs/continues { };
