@@ -5,22 +5,23 @@
   fetchurl,
 }:
 let
+  version = "0.2.7";
   sources = {
     aarch64-darwin = {
       name = "acac-darwin-arm64";
-      hash = "sha256-u6W7cgEsVlrRyBdVVhDKtmcBhIfzmEogrh4RqnzPsZo=";
+      hash = "sha256-s+l/MnGslNLxo8PcfZ/rIR4Tvha5YenHKLMCYJswRlo=";
     };
     aarch64-linux = {
       name = "acac-linux-arm64";
-      hash = "sha256-lHUM+TNQJ0G+BCRoAJJQ+cFa4DibCCw7TZDq8M9gEv8=";
+      hash = "sha256-fhmsiykX4rGtmZr1SmWWtcxfnAVUZ5lnqbtjDV27YB0=";
     };
     x86_64-darwin = {
       name = "acac-darwin-x64";
-      hash = "sha256-ibVrz67oI3ywhhzLh+aGFOqGldhR+Fmf1ZSGQL6kXV0=";
+      hash = "sha256-Ime7rtqRQFzn6CqTQr3HVoAI4QPmiIgL7tJVLGfQMYE=";
     };
     x86_64-linux = {
       name = "acac-linux-x64";
-      hash = "sha256-dTcQT7hy1CDUKE9QdI41O/s+Fj9GCk/Ri4xHJCR80/Q=";
+      hash = "sha256-Gc+aY0zRgTKP3uuUvtrOJmDnRlSsG/egN2FknZMBhA8=";
     };
   };
 
@@ -28,10 +29,10 @@ let
 in
 stdenvNoCC.mkDerivation {
   pname = "acac-cli";
-  version = "0.2.1";
+  inherit version;
 
   src = fetchurl {
-    url = "https://github.com/RyosukeDTomita/acac-cli/releases/download/v0.2.1/${source.name}";
+    url = "https://github.com/RyosukeDTomita/acac-cli/releases/download/v${version}/${source.name}";
     inherit (source) hash;
   };
 
