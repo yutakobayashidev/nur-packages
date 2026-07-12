@@ -59,6 +59,7 @@ in
   pyproject-nix = pkgs.callPackage ./pkgs/pyproject-nix { };
   readout = pkgs.callPackage ./pkgs/readout { };
   tfmv = pkgs.callPackage ./pkgs/tfmv { };
+  tree-sitter-moonbit-grammar = pkgs.callPackage ./pkgs/tree-sitter-moonbit-grammar { };
   roots = pkgs.callPackage ./pkgs/roots { };
   s3s = pkgs.callPackage ./pkgs/s3s { };
   similarity-ts = pkgs.callPackage ./pkgs/similarity-ts { };

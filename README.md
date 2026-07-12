@@ -29,6 +29,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `readout`
 - `roots`
 - `tfmv`
+- `tree-sitter-moonbit-grammar`
 - `similarity-ts`
 - `skill-scanner`
 - `skillspector`
