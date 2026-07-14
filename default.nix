@@ -53,6 +53,7 @@ in
   inherit jportaudio;
   keifu = pkgs.callPackage ./pkgs/keifu { };
   man-pages-ja = pkgs.callPackage ./pkgs/man-pages-ja { };
+  nlobby-cli = pkgs.callPackage ./pkgs/nlobby-cli { };
   opensrc = pkgs.callPackage ./pkgs/opensrc { };
   polycat = pkgs.callPackage ./pkgs/polycat { };
   pretty-ts-errors-markdown = pkgs.callPackage ./pkgs/pretty-ts-errors-markdown { };
