@@ -8,11 +8,11 @@
 
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "course-cli";
-  version = "0.0.1";
+  version = "0.0.2";
 
   src = fetchurl {
     url = "https://git.yutakobayashi.com/api/packages/yuta/npm/%40yuta%2Fcourse-cli/-/${finalAttrs.version}/course-cli-${finalAttrs.version}.tgz";
-    hash = "sha256-laOrThwJ0KazKDL9buL0V/ORr3aDODb1w+m2oJ+iuEQ=";
+    hash = "sha256-cyLA6Z/hBIlVJlhNy5iIvIWpwDmU+TVE6pXrwqWHblw=";
   };
 
   sourceRoot = "package";
@@ -30,7 +30,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
   meta = {
     description = "Course API CLI";
-    homepage = "https://git.yutakobayashi.com/yuta/-/packages/npm/%40yuta%2Fcourse-cli/0.0.1";
+    homepage = "https://git.yutakobayashi.com/yuta/-/packages/npm/%40yuta%2Fcourse-cli/${finalAttrs.version}";
     mainProgram = "nnn";
     platforms = lib.platforms.unix;
   };
