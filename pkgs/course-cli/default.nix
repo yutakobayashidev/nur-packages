@@ -8,11 +8,11 @@
 
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "course-cli";
-  version = "0.0.3";
+  version = "0.0.4";
 
   src = fetchurl {
     url = "https://git.yutakobayashi.com/api/packages/yuta/npm/%40yuta%2Fcourse-cli/-/${finalAttrs.version}/course-cli-${finalAttrs.version}.tgz";
-    hash = "sha256-Z7nVjAgGwxvQOkfajx0Zq4fsunqGK5cJ8Xgb5dDTQjo=";
+    hash = "sha256-eWsuDw1fz3VLAbvsHDwJNWG9vCxb0hEvp+MvgvyzdOo=";
   };
 
   sourceRoot = "package";
