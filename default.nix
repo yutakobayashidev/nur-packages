@@ -51,6 +51,7 @@ in
   headroom-ai = pkgs.callPackage ./pkgs/headroom-ai { };
   jj-desc = pkgs.callPackage ./pkgs/jj-desc { };
   inherit jportaudio;
+  katasu = pkgs.callPackage ./pkgs/katasu { };
   keifu = pkgs.callPackage ./pkgs/keifu { };
   man-pages-ja = pkgs.callPackage ./pkgs/man-pages-ja { };
   nlobby-cli = pkgs.callPackage ./pkgs/nlobby-cli { };

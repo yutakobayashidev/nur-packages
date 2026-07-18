@@ -20,6 +20,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `git-now`
 - `jj-desc`
 - `jportaudio`
+- `katasu`
 - `keifu`
 - `man-pages-ja`
 - `nlobby-cli`
