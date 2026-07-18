@@ -8,11 +8,11 @@
 
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "course-cli";
-  version = "0.0.2";
+  version = "0.0.3";
 
   src = fetchurl {
     url = "https://git.yutakobayashi.com/api/packages/yuta/npm/%40yuta%2Fcourse-cli/-/${finalAttrs.version}/course-cli-${finalAttrs.version}.tgz";
-    hash = "sha256-cyLA6Z/hBIlVJlhNy5iIvIWpwDmU+TVE6pXrwqWHblw=";
+    hash = "sha256-Z7nVjAgGwxvQOkfajx0Zq4fsunqGK5cJ8Xgb5dDTQjo=";
   };
 
   sourceRoot = "package";
@@ -21,9 +21,9 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   installPhase = ''
     runHook preInstall
 
-    install -Dm644 dist/nnn.js $out/libexec/${finalAttrs.pname}/nnn.js
-    makeWrapper ${bun}/bin/bun $out/bin/nnn \
-      --add-flags $out/libexec/${finalAttrs.pname}/nnn.js
+    install -Dm644 dist/course-cli.js $out/libexec/${finalAttrs.pname}/course-cli.js
+    makeWrapper ${bun}/bin/bun $out/bin/course-cli \
+      --add-flags $out/libexec/${finalAttrs.pname}/course-cli.js
 
     runHook postInstall
   '';
@@ -31,7 +31,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   meta = {
     description = "Course API CLI";
     homepage = "https://git.yutakobayashi.com/yuta/-/packages/npm/%40yuta%2Fcourse-cli/${finalAttrs.version}";
-    mainProgram = "nnn";
+    mainProgram = "course-cli";
     platforms = lib.platforms.unix;
   };
 })
