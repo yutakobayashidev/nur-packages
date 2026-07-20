@@ -37,6 +37,7 @@ in
   before-and-after = pkgs.callPackage ./pkgs/before-and-after { };
   bit-vcs = pkgs.callPackage ./pkgs/bit-vcs { };
   bumblebee = pkgs.callPackage ./pkgs/bumblebee { };
+  codexbar-waybar = pkgs.callPackage ./pkgs/codexbar-waybar { };
   continues = pkgs.callPackage ./pkgs/continues { };
   course-cli = pkgs.callPackage ./pkgs/course-cli { };
   cucumber-language-server = pkgs.callPackage ./pkgs/cucumber-language-server { };
