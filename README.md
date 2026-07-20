@@ -18,6 +18,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `difit`
 - `gctx`
 - `gh-actions-language-server`
+- `ghidra-mcp`
 - `git-now`
 - `jj-desc`
 - `jportaudio`
@@ -46,3 +47,13 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 ## Usage
 
 Import this repo through NUR or use [overlay.nix](./overlay.nix) as a nixpkgs overlay.
+
+GhidraMCP 1.1 targets Ghidra 11.3.1. Compose it with the compatible Ghidra
+derivation exposed by the package:
+
+```nix
+let
+  extension = pkgs.ghidra-mcp;
+in
+extension.ghidra.withExtensions (_: [ extension ])
+```

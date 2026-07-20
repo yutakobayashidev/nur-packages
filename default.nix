@@ -13,6 +13,15 @@
 
 let
   jportaudio = pkgs.callPackage ./pkgs/jportaudio { };
+  ghidraPkgs =
+    import
+      (builtins.fetchTarball {
+        url = "https://github.com/NixOS/nixpkgs/archive/8d94befdfd62a53f99adb09b1b62b5af9c143c6e.tar.gz";
+        sha256 = "sha256-aCeZlH1DQ/4rzVUI/uiDCPBiC3xjdZqycIIzl5xdPPg=";
+      })
+      {
+        system = pkgs.stdenv.hostPlatform.system;
+      };
   acacCliPlatforms = [
     "aarch64-darwin"
     "aarch64-linux"
@@ -46,6 +55,7 @@ in
   fennel-ls = pkgs.callPackage ./pkgs/fennel-ls { };
   gctx = pkgs.callPackage ./pkgs/gctx { };
   gh-actions-language-server = pkgs.callPackage ./pkgs/gh-actions-language-server { };
+  ghidra-mcp = ghidraPkgs.callPackage ./pkgs/ghidra-mcp { };
   git-now = pkgs.callPackage ./pkgs/git-now { };
   ghtkn = pkgs.callPackage ./pkgs/ghtkn { };
   hermes = pkgs.callPackage ./pkgs/hermes { };
