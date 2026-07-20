@@ -24,6 +24,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `keifu`
 - `man-pages-ja`
 - `nlobby-cli`
+- `oracle`
 - `opensrc`
 - `polycat`
 - `pretty-ts-errors-markdown`
