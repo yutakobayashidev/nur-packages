@@ -44,6 +44,6 @@ ghidra.buildGhidraExtension rec {
   meta = {
     description = "MCP server for Ghidra that enables LLM-assisted reverse engineering";
     homepage = "https://github.com/LaurieWired/GhidraMCP";
-    license = lib.licenses.mit;
+    license = lib.licenses.asl20;
   };
 }
