@@ -19,6 +19,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `gctx`
 - `gh-actions-language-server`
 - `ghidra-mcp`
+- `ghidra-mcp-bridge`
 - `git-now`
 - `jj-desc`
 - `jportaudio`
@@ -57,3 +58,7 @@ let
 in
 extension.ghidra.withExtensions (_: [ extension ])
 ```
+
+`ghidra-mcp` provides the extension loaded into Ghidra. MCP clients launch the
+separate `ghidra-mcp-bridge` executable, which forwards stdio MCP requests to
+the extension's HTTP endpoint.

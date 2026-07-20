@@ -56,6 +56,7 @@ in
   gctx = pkgs.callPackage ./pkgs/gctx { };
   gh-actions-language-server = pkgs.callPackage ./pkgs/gh-actions-language-server { };
   ghidra-mcp = ghidraPkgs.callPackage ./pkgs/ghidra-mcp { };
+  ghidra-mcp-bridge = pkgs.callPackage ./pkgs/ghidra-mcp-bridge { };
   git-now = pkgs.callPackage ./pkgs/git-now { };
   ghtkn = pkgs.callPackage ./pkgs/ghtkn { };
   hermes = pkgs.callPackage ./pkgs/hermes { };
