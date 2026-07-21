@@ -35,6 +35,8 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `pyproject-nix`
 - `readout`
 - `roots`
+- `screenpipe-app`
+- `screenpipe-cli`
 - `tfmv`
 - `tree-sitter-moonbit-grammar`
 - `similarity-ts`
@@ -48,6 +50,10 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 ## Usage
 
 Import this repo through NUR or use [overlay.nix](./overlay.nix) as a nixpkgs overlay.
+
+`screenpipe-app` and `screenpipe-cli` are built from the pinned upstream source.
+They use the unfree Screenpipe Commercial License; check the upstream terms
+before business or production use.
 
 GhidraMCP 1.4 targets Ghidra 11.3.2. Compose it with the compatible Ghidra
 derivation exposed by the package:

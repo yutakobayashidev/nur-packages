@@ -13,6 +13,7 @@
 
 let
   jportaudio = pkgs.callPackage ./pkgs/jportaudio { };
+  screenpipeSrc = pkgs.callPackage ./pkgs/screenpipe/source.nix { };
   ghidraPkgs =
     import
       (builtins.fetchTarball {
@@ -74,6 +75,8 @@ in
   pyproject-build-systems = pkgs.callPackage ./pkgs/pyproject-build-systems { };
   pyproject-nix = pkgs.callPackage ./pkgs/pyproject-nix { };
   readout = pkgs.callPackage ./pkgs/readout { };
+  screenpipe-app = pkgs.callPackage ./pkgs/screenpipe/app.nix { inherit screenpipeSrc; };
+  screenpipe-cli = pkgs.callPackage ./pkgs/screenpipe/cli.nix { inherit screenpipeSrc; };
   tfmv = pkgs.callPackage ./pkgs/tfmv { };
   tree-sitter-moonbit-grammar = pkgs.callPackage ./pkgs/tree-sitter-moonbit-grammar { };
   roots = pkgs.callPackage ./pkgs/roots { };
