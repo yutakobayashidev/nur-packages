@@ -16,8 +16,8 @@ let
   ghidraPkgs =
     import
       (builtins.fetchTarball {
-        url = "https://github.com/NixOS/nixpkgs/archive/8d94befdfd62a53f99adb09b1b62b5af9c143c6e.tar.gz";
-        sha256 = "sha256-aCeZlH1DQ/4rzVUI/uiDCPBiC3xjdZqycIIzl5xdPPg=";
+        url = "https://github.com/NixOS/nixpkgs/archive/cff659446eccd532661ea86f0caec4d7f0a8722f.tar.gz";
+        sha256 = "sha256-omRUecyvaOtmQuX25CUN7Iwe+9xT/NwLZLmhP7THC6k=";
       })
       {
         system = pkgs.stdenv.hostPlatform.system;

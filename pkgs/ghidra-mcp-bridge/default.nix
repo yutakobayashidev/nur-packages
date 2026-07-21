@@ -1,38 +1,36 @@
 {
+  fetchFromGitHub,
   lib,
-  fetchurl,
   makeWrapper,
   python3,
   stdenvNoCC,
-  unzip,
 }:
 
 let
   pythonEnv = python3.withPackages (ps: [
+    ps.httpx
     ps.mcp
-    ps.requests
+    ps.tenacity
   ]);
 in
-stdenvNoCC.mkDerivation rec {
+stdenvNoCC.mkDerivation {
   pname = "ghidra-mcp-bridge";
-  version = "1.1";
+  version = "1.4-unstable-2026-01-11";
 
-  src = fetchurl {
-    url = "https://github.com/LaurieWired/GhidraMCP/releases/download/${version}/GhidraMCP-release-1-1.zip";
-    hash = "sha256-WHwlwo8sV7t9irFKg0gOOzL04wvfhf+WElRVa9lAnus=";
+  src = fetchFromGitHub {
+    owner = "jethac";
+    repo = "GhidraMCP";
+    rev = "f7a030ac4b847eb000126ff574ad5d5ccb0d6eb1";
+    hash = "sha256-c79PGVa94kmYu/xi1CHabQuXySZMBkwMQApyau6X7Dg=";
   };
 
-  dontUnpack = true;
-  nativeBuildInputs = [
-    makeWrapper
-    unzip
-  ];
+  nativeBuildInputs = [ makeWrapper ];
 
   installPhase = ''
     runHook preInstall
 
     mkdir -p "$out/bin" "$out/share/ghidra-mcp"
-    unzip -p "$src" bridge_mcp_ghidra.py > "$out/share/ghidra-mcp/bridge_mcp_ghidra.py"
+    install -Dm644 bridge_mcp_ghidra.py "$out/share/ghidra-mcp/bridge_mcp_ghidra.py"
     makeWrapper "${pythonEnv}/bin/python" "$out/bin/ghidra-mcp-bridge" \
       --add-flags "$out/share/ghidra-mcp/bridge_mcp_ghidra.py"
 

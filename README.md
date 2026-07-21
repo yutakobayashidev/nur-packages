@@ -49,7 +49,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 
 Import this repo through NUR or use [overlay.nix](./overlay.nix) as a nixpkgs overlay.
 
-GhidraMCP 1.1 targets Ghidra 11.3.1. Compose it with the compatible Ghidra
+GhidraMCP 1.4 targets Ghidra 11.3.2. Compose it with the compatible Ghidra
 derivation exposed by the package:
 
 ```nix
@@ -59,6 +59,7 @@ in
 extension.ghidra.withExtensions (_: [ extension ])
 ```
 
-`ghidra-mcp` provides the extension loaded into Ghidra. MCP clients launch the
-separate `ghidra-mcp-bridge` executable, which forwards stdio MCP requests to
-the extension's HTTP endpoint.
+`ghidra-mcp` provides the official 1.4 extension loaded into Ghidra. MCP
+clients launch the separate `ghidra-mcp-bridge` executable, pinned to upstream
+PR 123, which adds pooled HTTP connections and configurable decompilation
+timeouts.

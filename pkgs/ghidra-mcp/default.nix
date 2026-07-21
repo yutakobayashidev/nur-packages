@@ -6,11 +6,11 @@
 
 ghidra.buildGhidraExtension rec {
   pname = "GhidraMCP";
-  version = "1.1";
+  version = "1.4";
 
   src = fetchurl {
-    url = "https://github.com/LaurieWired/GhidraMCP/releases/download/${version}/GhidraMCP-release-1-1.zip";
-    hash = "sha256-WHwlwo8sV7t9irFKg0gOOzL04wvfhf+WElRVa9lAnus=";
+    url = "https://github.com/LaurieWired/GhidraMCP/releases/download/${version}/GhidraMCP-release-1-4.zip";
+    hash = "sha256-uBylJA/d5X6k6JkXDc2f3ubtKSRigMdCY6UJv8/H5zQ=";
   };
 
   dontUnpack = true;
