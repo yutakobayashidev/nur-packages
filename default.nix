@@ -86,6 +86,7 @@ in
   skillspector = pkgs.callPackage ./pkgs/skillspector { };
   symphony = pkgs.callPackage ./pkgs/symphony { };
   tunnelto = pkgs.callPackage ./pkgs/tunnelto { };
+  turbowarp-desktop = pkgs.callPackage ./pkgs/turbowarp-desktop { };
   twitter-api-safe-relay-mcp = pkgs.callPackage ./pkgs/twitter-api-safe-relay-mcp { };
   nxapi = pkgs.callPackage ./pkgs/nxapi { };
   uv2nix = pkgs.callPackage ./pkgs/uv2nix { };

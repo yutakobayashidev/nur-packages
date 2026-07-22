@@ -44,6 +44,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `skillspector`
 - `symphony`
 - `tunnelto`
+- `turbowarp-desktop`
 - `twitter-api-safe-relay-mcp`
 - `uv2nix`
 - `waza`
