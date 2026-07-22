@@ -26,9 +26,11 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `katasu`
 - `keifu`
 - `man-pages-ja`
+- `mcp-searxng`
 - `nlobby-cli`
 - `oracle`
 - `opensrc`
+- `pi-acp`
 - `polycat`
 - `pretty-ts-errors-markdown`
 - `pyproject-build-systems`

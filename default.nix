@@ -67,9 +67,11 @@ in
   katasu = pkgs.callPackage ./pkgs/katasu { };
   keifu = pkgs.callPackage ./pkgs/keifu { };
   man-pages-ja = pkgs.callPackage ./pkgs/man-pages-ja { };
+  mcp-searxng = pkgs.callPackage ./pkgs/mcp-searxng { };
   nlobby-cli = pkgs.callPackage ./pkgs/nlobby-cli { };
   oracle = pkgs.callPackage ./pkgs/oracle { };
   opensrc = pkgs.callPackage ./pkgs/opensrc { };
+  pi-acp = pkgs.callPackage ./pkgs/pi-acp { };
   polycat = pkgs.callPackage ./pkgs/polycat { };
   pretty-ts-errors-markdown = pkgs.callPackage ./pkgs/pretty-ts-errors-markdown { };
   pyproject-build-systems = pkgs.callPackage ./pkgs/pyproject-build-systems { };
