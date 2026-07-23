@@ -27,6 +27,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `keifu`
 - `man-pages-ja`
 - `mcp-searxng`
+- `nature-remo-cli`
 - `nlobby-cli`
 - `oracle`
 - `opensrc`

@@ -68,6 +68,7 @@ in
   keifu = pkgs.callPackage ./pkgs/keifu { };
   man-pages-ja = pkgs.callPackage ./pkgs/man-pages-ja { };
   mcp-searxng = pkgs.callPackage ./pkgs/mcp-searxng { };
+  nature-remo-cli = pkgs.callPackage ./pkgs/nature-remo-cli { };
   nlobby-cli = pkgs.callPackage ./pkgs/nlobby-cli { };
   oracle = pkgs.callPackage ./pkgs/oracle { };
   opensrc = pkgs.callPackage ./pkgs/opensrc { };
