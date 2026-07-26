@@ -47,6 +47,7 @@ in
   before-and-after = pkgs.callPackage ./pkgs/before-and-after { };
   bit-vcs = pkgs.callPackage ./pkgs/bit-vcs { };
   bumblebee = pkgs.callPackage ./pkgs/bumblebee { };
+  buzz-acp = pkgs.callPackage ./pkgs/buzz-acp { };
   codexbar-waybar = pkgs.callPackage ./pkgs/codexbar-waybar { };
   continues = pkgs.callPackage ./pkgs/continues { };
   course-cli = pkgs.callPackage ./pkgs/course-cli { };
@@ -99,4 +100,7 @@ in
 }
 // pkgs.lib.optionalAttrs (pkgs.lib.elem pkgs.stdenv.hostPlatform.system acacCliPlatforms) {
   acac-cli = pkgs.callPackage ./pkgs/acac-cli { };
+}
+// pkgs.lib.optionalAttrs (pkgs.stdenv.hostPlatform.system == "x86_64-linux") {
+  buzz = pkgs.callPackage ./pkgs/buzz { };
 }
