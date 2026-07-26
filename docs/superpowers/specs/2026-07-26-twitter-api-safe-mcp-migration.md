@@ -26,8 +26,23 @@ its positional argument. The settings choose stdio or HTTP transport and define
 the Playwright browser profiles used for Twitter/X requests. Stdio clients must
 set `"mcp": { "transport": "stdio" }`; the upstream default is HTTP.
 
+## NixOS Module
+
+The flake exports `nixosModules.twitter-api-safe-mcp`. Enabling
+`services.twitter-api-safe-mcp` generates the upstream JSON settings file and
+runs the package as `twitter-api-safe-mcp.service`.
+
+The module owns only the native process lifecycle and settings generation.
+Browser containers, CDP proxies, reverse proxies, and tunnel clients remain
+host-specific and can extend the generated systemd unit with ordering
+dependencies. The default settings bind to `127.0.0.1:3000` and enable the
+dashboard and HTTP MCP transport. Enabling the service requires at least one
+browser profile, and the unit always restarts so a clean process exit after a
+browser disconnect does not leave the relay offline.
+
 ## Verification
 
 Evaluate the package metadata, build it in the flake, inspect the installed
-workspace and executable, and confirm that invoking the executable without a
-settings file reports the upstream usage error.
+workspace and executable, confirm that invoking the executable without a
+settings file reports the upstream usage error, and evaluate the generated
+NixOS service and JSON settings.

@@ -61,6 +61,32 @@ server. Stdio clients must set `"mcp": { "transport": "stdio" }` in that
 settings file. Configure a system browser executable or CDP endpoint in the
 profile settings; browser binaries are not bundled with the package.
 
+The flake also exports `nixosModules.twitter-api-safe-mcp`, which generates the
+settings file and runs the package as a native systemd service:
+
+```nix
+{
+  imports = [ inputs.nur-packages.nixosModules.twitter-api-safe-mcp ];
+
+  services.twitter-api-safe-mcp = {
+    enable = true;
+    settings.profiles = [
+      {
+        name = "account1";
+        browser = {
+          type = "cdp";
+          browserType = "chromium";
+          cdpEndpoint = "http://127.0.0.1:9224";
+        };
+      }
+    ];
+  };
+}
+```
+
+The generated settings file is stored in the Nix store. Do not put passwords,
+tokens, or other secrets in `services.twitter-api-safe-mcp.settings`.
+
 `screenpipe-app` and `screenpipe-cli` are built from the pinned upstream source.
 They use the unfree Screenpipe Commercial License; check the upstream terms
 before business or production use.
