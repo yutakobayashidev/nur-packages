@@ -10,6 +10,8 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `beatoraja`
 - `bit-vcs`
 - `bumblebee`
+- `buzz`
+- `buzz-acp`
 - `codexbar-waybar`
 - `continues`
 - `course-cli`
