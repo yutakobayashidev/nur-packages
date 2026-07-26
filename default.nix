@@ -61,7 +61,6 @@ in
   ghidra-mcp-bridge = pkgs.callPackage ./pkgs/ghidra-mcp-bridge { };
   git-now = pkgs.callPackage ./pkgs/git-now { };
   ghtkn = pkgs.callPackage ./pkgs/ghtkn { };
-  hermes = pkgs.callPackage ./pkgs/hermes { };
   headroom-ai = pkgs.callPackage ./pkgs/headroom-ai { };
   jj-desc = pkgs.callPackage ./pkgs/jj-desc { };
   inherit jportaudio;
