@@ -48,13 +48,18 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `symphony`
 - `tunnelto`
 - `turbowarp-desktop`
-- `twitter-api-safe-relay-mcp`
+- `twitter-api-safe-mcp`
 - `uv2nix`
 - `waza`
 
 ## Usage
 
 Import this repo through NUR or use [overlay.nix](./overlay.nix) as a nixpkgs overlay.
+
+Run `twitter-api-safe-mcp /path/to/settings.json` to start the Twitter/X MCP
+server. Stdio clients must set `"mcp": { "transport": "stdio" }` in that
+settings file. Configure a system browser executable or CDP endpoint in the
+profile settings; browser binaries are not bundled with the package.
 
 `screenpipe-app` and `screenpipe-cli` are built from the pinned upstream source.
 They use the unfree Screenpipe Commercial License; check the upstream terms
