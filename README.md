@@ -12,6 +12,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `bumblebee`
 - `buzz`
 - `buzz-acp`
+- `codex-limit-auto-reset`
 - `codexbar-waybar`
 - `continues`
 - `course-cli`
@@ -92,6 +93,21 @@ tokens, or other secrets in `services.twitter-api-safe-mcp.settings`.
 `screenpipe-app` and `screenpipe-cli` are built from the pinned upstream source.
 They use the unfree Screenpipe Commercial License; check the upstream terms
 before business or production use.
+
+`nixosModules.codex-limit-auto-reset` runs the package as the user whose Codex
+authentication it should use:
+
+```nix
+{
+  imports = [ inputs.nur-packages.nixosModules.codex-limit-auto-reset ];
+
+  services.codex-limit-auto-reset = {
+    enable = true;
+    user = "alice";
+    codexHome = "/home/alice/.codex";
+  };
+}
+```
 
 GhidraMCP 1.4 targets Ghidra 11.3.2. Compose it with the compatible Ghidra
 derivation exposed by the package:

@@ -48,6 +48,7 @@ in
   bit-vcs = pkgs.callPackage ./pkgs/bit-vcs { };
   bumblebee = pkgs.callPackage ./pkgs/bumblebee { };
   buzz-acp = pkgs.callPackage ./pkgs/buzz-acp { };
+  codex-limit-auto-reset = pkgs.callPackage ./pkgs/codex-limit-auto-reset { };
   codexbar-waybar = pkgs.callPackage ./pkgs/codexbar-waybar { };
   continues = pkgs.callPackage ./pkgs/continues { };
   course-cli = pkgs.callPackage ./pkgs/course-cli { };
