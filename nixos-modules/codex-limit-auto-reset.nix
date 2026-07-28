@@ -14,7 +14,9 @@ in
 
     package = lib.mkOption {
       type = lib.types.package;
-      default = pkgs.callPackage ../pkgs/codex-limit-auto-reset { };
+      default = pkgs.callPackage ../pkgs/codex-limit-auto-reset {
+        codex = cfg.codexPackage;
+      };
       defaultText = lib.literalExpression "pkgs.codex-limit-auto-reset";
       description = "The codex-limit-auto-reset package to use.";
     };
