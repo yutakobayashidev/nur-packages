@@ -65,7 +65,13 @@ stdenv.mkDerivation (finalAttrs: {
   meta = with lib; {
     description = "Simple before/after screenshot tool for capturing and comparing web pages";
     homepage = "https://github.com/vercel-labs/before-and-after";
-    license = licenses.unfree;
+    license = {
+      shortName = "PolyForm Shield 1.0.0";
+      fullName = "PolyForm Shield License 1.0.0";
+      url = "https://polyformproject.org/licenses/shield/1.0.0";
+      free = false;
+      redistributable = true;
+    };
     mainProgram = "before-and-after";
   };
 })
