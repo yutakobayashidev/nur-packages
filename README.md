@@ -40,6 +40,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `pyproject-build-systems`
 - `pyproject-nix`
 - `readout`
+- `rinkaku`
 - `roots`
 - `screenpipe-app`
 - `screenpipe-cli`

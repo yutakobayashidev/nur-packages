@@ -79,6 +79,7 @@ in
   pyproject-build-systems = pkgs.callPackage ./pkgs/pyproject-build-systems { };
   pyproject-nix = pkgs.callPackage ./pkgs/pyproject-nix { };
   readout = pkgs.callPackage ./pkgs/readout { };
+  rinkaku = pkgs.callPackage ./pkgs/rinkaku { };
   screenpipe-app = pkgs.callPackage ./pkgs/screenpipe/app.nix { inherit screenpipeSrc; };
   screenpipe-cli = pkgs.callPackage ./pkgs/screenpipe/cli.nix { inherit screenpipeSrc; };
   tfmv = pkgs.callPackage ./pkgs/tfmv { };
