@@ -29,7 +29,7 @@ rustPlatform.buildRustPackage rec {
   postInstall = ''
     wrapProgram $out/bin/rinkaku \
       --set-default RINKAKU_UPDATE_CHECK 0 \
-      --prefix PATH : ${lib.makeBinPath [
+      --suffix PATH : ${lib.makeBinPath [
         gh
         git
       ]}
