@@ -49,6 +49,7 @@ in
   bumblebee = pkgs.callPackage ./pkgs/bumblebee { };
   buzz-acp = pkgs.callPackage ./pkgs/buzz-acp { };
   codex-limit-auto-reset = pkgs.callPackage ./pkgs/codex-limit-auto-reset { };
+  codex-security = pkgs.callPackage ./pkgs/codex-security { };
   codexbar-waybar = pkgs.callPackage ./pkgs/codexbar-waybar { };
   continues = pkgs.callPackage ./pkgs/continues { };
   course-cli = pkgs.callPackage ./pkgs/course-cli { };

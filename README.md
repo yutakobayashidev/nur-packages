@@ -13,6 +13,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `buzz`
 - `buzz-acp`
 - `codex-limit-auto-reset`
+- `codex-security`
 - `codexbar-waybar`
 - `continues`
 - `course-cli`
