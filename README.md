@@ -38,6 +38,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `pi-acp`
 - `polycat`
 - `pretty-ts-errors-markdown`
+- `ptrlib`
 - `pyproject-build-systems`
 - `pyproject-nix`
 - `readout`
@@ -60,6 +61,13 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 ## Usage
 
 Import this repo through NUR or use [overlay.nix](./overlay.nix) as a nixpkgs overlay.
+
+`ptrlib` is a Python library rather than a command-line application. Add it to
+a Python environment when consuming the overlay:
+
+```nix
+pkgs.python3.withPackages (_: [ pkgs.ptrlib ])
+```
 
 Run `twitter-api-safe-mcp /path/to/settings.json` to start the Twitter/X MCP
 server. Stdio clients must set `"mcp": { "transport": "stdio" }` in that

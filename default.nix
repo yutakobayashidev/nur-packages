@@ -77,6 +77,7 @@ in
   pi-acp = pkgs.callPackage ./pkgs/pi-acp { };
   polycat = pkgs.callPackage ./pkgs/polycat { };
   pretty-ts-errors-markdown = pkgs.callPackage ./pkgs/pretty-ts-errors-markdown { };
+  ptrlib = pkgs.callPackage ./pkgs/ptrlib { };
   pyproject-build-systems = pkgs.callPackage ./pkgs/pyproject-build-systems { };
   pyproject-nix = pkgs.callPackage ./pkgs/pyproject-nix { };
   readout = pkgs.callPackage ./pkgs/readout { };
