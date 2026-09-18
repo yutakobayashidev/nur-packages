@@ -8,6 +8,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `aclogin`
 - `atcoder-cli`
 - `beatoraja`
+- `beeper-cli`
 - `bit-vcs`
 - `bumblebee`
 - `buzz`
@@ -73,6 +74,10 @@ Run `twitter-api-safe-mcp /path/to/settings.json` to start the Twitter/X MCP
 server. Stdio clients must set `"mcp": { "transport": "stdio" }` in that
 settings file. Configure a system browser executable or CDP endpoint in the
 profile settings; browser binaries are not bundled with the package.
+
+`beeper-cli` installs the command as `beeper-cli` so it can coexist with the
+`beeper` desktop package. Beeper Desktop already includes its MCP server; no
+separate MCP package is needed.
 
 The flake also exports `nixosModules.twitter-api-safe-mcp`, which generates the
 settings file and runs the package as a native systemd service:

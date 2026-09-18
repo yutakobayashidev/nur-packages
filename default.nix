@@ -29,6 +29,10 @@ let
     "x86_64-darwin"
     "x86_64-linux"
   ];
+  beeperCliPlatforms = [
+    "aarch64-linux"
+    "x86_64-linux"
+  ];
 in
 {
   # The `lib`, `overlays`, `nixosModules`, `homeModules`,
@@ -103,6 +107,9 @@ in
 }
 // pkgs.lib.optionalAttrs (pkgs.lib.elem pkgs.stdenv.hostPlatform.system acacCliPlatforms) {
   acac-cli = pkgs.callPackage ./pkgs/acac-cli { };
+}
+// pkgs.lib.optionalAttrs (pkgs.lib.elem pkgs.stdenv.hostPlatform.system beeperCliPlatforms) {
+  beeper-cli = pkgs.callPackage ./pkgs/beeper-cli { };
 }
 // pkgs.lib.optionalAttrs (pkgs.stdenv.hostPlatform.system == "x86_64-linux") {
   buzz = pkgs.callPackage ./pkgs/buzz { };
