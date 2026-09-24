@@ -9,7 +9,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `atcoder-cli`
 - `beatoraja`
 - `beeper-cli`
-- `beeper-server`
+- `beeper-server` (headless nightly, x86_64-linux)
 - `bit-vcs`
 - `bumblebee`
 - `buzz`
