@@ -3,7 +3,7 @@
   fetchFromGitHub,
 }:
 let
-  beamPkgs = beamPackages.extend (
+  beamPkgs = beamPackages.overrideScope (
     _final: prev: {
       elixir = beamPackages.elixir_1_19;
       hex = prev.hex.overrideAttrs (_: {
