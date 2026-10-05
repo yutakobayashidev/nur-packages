@@ -112,5 +112,6 @@ in
   beeper-cli = pkgs.callPackage ./pkgs/beeper-cli { };
 }
 // pkgs.lib.optionalAttrs (pkgs.stdenv.hostPlatform.system == "x86_64-linux") {
+  beeper-server = pkgs.callPackage ./pkgs/beeper-server { };
   buzz = pkgs.callPackage ./pkgs/buzz { };
 }

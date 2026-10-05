@@ -9,6 +9,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `atcoder-cli`
 - `beatoraja`
 - `beeper-cli`
+- `beeper-server`
 - `bit-vcs`
 - `bumblebee`
 - `buzz`
@@ -78,6 +79,11 @@ profile settings; browser binaries are not bundled with the package.
 `beeper-cli` installs the command as `beeper-cli` so it can coexist with the
 `beeper` desktop package. Beeper Desktop already includes its MCP server; no
 separate MCP package is needed.
+
+`beeper-server` packages the headless Client API server for `x86_64-linux`,
+pinned to nightly version `4.3.149`. It can run without Beeper Desktop. Manage
+its service and persistent data directory separately; the package does not
+perform login or install a service.
 
 The flake also exports `nixosModules.twitter-api-safe-mcp`, which generates the
 settings file and runs the package as a native systemd service:
