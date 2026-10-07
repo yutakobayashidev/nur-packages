@@ -20,13 +20,14 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "twitter-api-safe-mcp";
-  version = "0.1.1";
+  version = "0.2.1";
 
+  # Temporary fork until https://github.com/fa0311/twitter_api_safe_relay/pull/30 is merged.
   src = fetchFromGitHub {
-    owner = "fa0311";
-    repo = "twitter_api_safe_relay";
-    rev = "0026d9d6a879a5ac263db8ba3563fd09e4f6aa10";
-    hash = "sha256-IGWEPNf5C1sU3T80zpsYfZe/tLKN8l5X+Z7QwWSmCfg=";
+    owner = "yutakobayashidev";
+    repo = "twitter_api_safe_proxy";
+    rev = "1aaf242b412367bdda6ad02c7912ac444bdbcc52";
+    hash = "sha256-/cy0Jsplmykoq0togypHfOOFbAfq48rXnIQNSfGXh0Y=";
   };
 
   pnpmDeps = fetchPnpmDeps {
