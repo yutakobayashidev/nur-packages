@@ -59,6 +59,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `twitter-api-safe-mcp`
 - `uv2nix`
 - `waza`
+- `xurl`
 
 ## Usage
 

@@ -29,6 +29,12 @@ let
     "x86_64-darwin"
     "x86_64-linux"
   ];
+  xurlPlatforms = [
+    "aarch64-darwin"
+    "aarch64-linux"
+    "x86_64-darwin"
+    "x86_64-linux"
+  ];
   beeperCliPlatforms = [
     "aarch64-linux"
     "x86_64-linux"
@@ -107,6 +113,9 @@ in
 }
 // pkgs.lib.optionalAttrs (pkgs.lib.elem pkgs.stdenv.hostPlatform.system acacCliPlatforms) {
   acac-cli = pkgs.callPackage ./pkgs/acac-cli { };
+}
+// pkgs.lib.optionalAttrs (pkgs.lib.elem pkgs.stdenv.hostPlatform.system xurlPlatforms) {
+  xurl = pkgs.callPackage ./pkgs/xurl { };
 }
 // pkgs.lib.optionalAttrs (pkgs.lib.elem pkgs.stdenv.hostPlatform.system beeperCliPlatforms) {
   beeper-cli = pkgs.callPackage ./pkgs/beeper-cli { };
