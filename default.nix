@@ -58,6 +58,7 @@ in
   bit-vcs = pkgs.callPackage ./pkgs/bit-vcs { };
   bumblebee = pkgs.callPackage ./pkgs/bumblebee { };
   buzz-acp = pkgs.callPackage ./pkgs/buzz-acp { };
+  cccc-moznion = pkgs.callPackage ./pkgs/cccc-moznion { };
   codex-limit-auto-reset = pkgs.callPackage ./pkgs/codex-limit-auto-reset { };
   codex-security = pkgs.callPackage ./pkgs/codex-security { };
   codexbar-waybar = pkgs.callPackage ./pkgs/codexbar-waybar { };

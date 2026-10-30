@@ -14,6 +14,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `bumblebee`
 - `buzz`
 - `buzz-acp`
+- `cccc-moznion` (moznion's complexity analyzer; command: `cccc`)
 - `codex-limit-auto-reset`
 - `codex-security`
 - `codexbar-waybar`
