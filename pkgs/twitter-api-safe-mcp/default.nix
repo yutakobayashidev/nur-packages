@@ -20,20 +20,19 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "twitter-api-safe-mcp";
-  version = "0.2.1";
+  version = "0.4.0";
 
-  # Temporary fork until https://github.com/fa0311/twitter_api_safe_relay/pull/30 is merged.
   src = fetchFromGitHub {
-    owner = "yutakobayashidev";
-    repo = "twitter_api_safe_proxy";
-    rev = "1aaf242b412367bdda6ad02c7912ac444bdbcc52";
-    hash = "sha256-/cy0Jsplmykoq0togypHfOOFbAfq48rXnIQNSfGXh0Y=";
+    owner = "fa0311";
+    repo = "twitter_api_safe_relay";
+    rev = "eac7da22c3b548ce76ad957e305af7b5a9f98630";
+    hash = "sha256-BVHtRlMJ12ya3dFxtkZIi/bHA+bKI+nX+3EodL1xXBM=";
   };
 
   pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs) pname version src;
     pnpm = pnpm_11;
-    hash = "sha256-xrb+bHUCt2Pm+PnPHQ55BWb+vq8jSShH+yNwQDqrS7M=";
+    hash = "sha256-YuFyJL7rSRY5tqAMZFErpfXh/+Q74SpVWZ3TKmBpgR4=";
     fetcherVersion = 4;
     postPatch = enableInjectedWorkspacePackages;
   };
