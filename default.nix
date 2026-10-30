@@ -12,6 +12,7 @@
 }:
 
 let
+  herdr-core = pkgs.callPackage ./pkgs/herdr-core { };
   jportaudio = pkgs.callPackage ./pkgs/jportaudio { };
   screenpipeSrc = pkgs.callPackage ./pkgs/screenpipe/source.nix { };
   ghidraPkgs =
@@ -75,6 +76,8 @@ in
   git-now = pkgs.callPackage ./pkgs/git-now { };
   ghtkn = pkgs.callPackage ./pkgs/ghtkn { };
   headroom-ai = pkgs.callPackage ./pkgs/headroom-ai { };
+  herdr-app = pkgs.callPackage ./pkgs/herdr-app { inherit herdr-core; };
+  inherit herdr-core;
   jj-desc = pkgs.callPackage ./pkgs/jj-desc { };
   inherit jportaudio;
   katasu = pkgs.callPackage ./pkgs/katasu { };
