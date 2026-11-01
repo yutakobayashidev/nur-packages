@@ -22,7 +22,6 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `continues`
 - `course-cli`
 - `cucumber-language-server`
-- `defuddle`
 - `difit`
 - `gctx`
 - `gh-actions-language-server`
@@ -63,6 +62,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `twitter-api-safe-mcp`
 - `uv2nix`
 - `waza`
+- `webforai` (webforai-cli; local HTML and URL to Markdown)
 - `xurl`
 
 ## Usage

@@ -67,7 +67,6 @@ in
   continues = pkgs.callPackage ./pkgs/continues { };
   course-cli = pkgs.callPackage ./pkgs/course-cli { };
   cucumber-language-server = pkgs.callPackage ./pkgs/cucumber-language-server { };
-  defuddle = pkgs.callPackage ./pkgs/defuddle { };
   difit = pkgs.callPackage ./pkgs/difit { };
   fennel-ls = pkgs.callPackage ./pkgs/fennel-ls { };
   gctx = pkgs.callPackage ./pkgs/gctx { };
@@ -115,6 +114,7 @@ in
   nxapi = pkgs.callPackage ./pkgs/nxapi { };
   uv2nix = pkgs.callPackage ./pkgs/uv2nix { };
   pike = pkgs.callPackage ./pkgs/pike { };
+  webforai = pkgs.callPackage ./pkgs/webforai { };
   whichllm = pkgs.callPackage ./pkgs/whichllm { };
   waza = pkgs.callPackage ./pkgs/waza { };
 }
