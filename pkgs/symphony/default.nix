@@ -3,7 +3,8 @@
   fetchFromGitHub,
 }:
 let
-  beamPkgs = beamPackages.overrideScope (
+  # Stable uses makeExtensible; newer nixpkgs exposes the same scope overlay via overrideScope.
+  beamPkgs = (beamPackages.overrideScope or beamPackages.extend) (
     _final: prev: {
       elixir = beamPackages.elixir_1_19;
       hex = prev.hex.overrideAttrs (_: {
