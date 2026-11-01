@@ -6,6 +6,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 
 - `acac-cli`
 - `aclogin`
+- `agent-desktop` (Linux desktop automation CLI, built from source; includes clipboard helper)
 - `atcoder-cli`
 - `beatoraja`
 - `beeper-cli`
@@ -215,3 +216,7 @@ accepts a message but before its ID is persisted, or a lost response, can cause
 one retry to duplicate a notice. Notifications disable mentions and quote the
 original announcement text without machine translation. No real webhook is used
 in package tests.
+
+## Agent Desktop
+
+Run `nix run .#agent-desktop -- version` to check the CLI. Linux desktop access requires an active graphical user session with AT-SPI enabled (`services.gnome.at-spi2-core.enable` on NixOS). The package includes its clipboard-owner helper and supplies `wl-clipboard` on PATH. Semantic accessibility actions work on X11 and Wayland; Wayland pointer input and native window control are unsupported, and Wayland keyboard input requires GNOME Mutter. Wayland screenshots require a suitable desktop portal. See the [upstream installation guide](https://github.com/vercel-labs/agent-desktop/blob/v1.0.2/docs/install.md) for platform details.

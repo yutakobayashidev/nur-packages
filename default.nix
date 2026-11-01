@@ -52,6 +52,7 @@ in
   overlays = import ./overlays; # nixpkgs overlays
 
   aclogin = pkgs.callPackage ./pkgs/aclogin { };
+  agent-desktop = pkgs.callPackage ./pkgs/agent-desktop { };
   agent-scan = pkgs.callPackage ./pkgs/agent-scan { };
   atcoder-cli = pkgs.callPackage ./pkgs/atcoder-cli { };
   beatoraja = pkgs.callPackage ./pkgs/beatoraja { inherit jportaudio; };
