@@ -75,6 +75,7 @@ in
   ghidra-mcp-bridge = pkgs.callPackage ./pkgs/ghidra-mcp-bridge { };
   git-now = pkgs.callPackage ./pkgs/git-now { };
   ghtkn = pkgs.callPackage ./pkgs/ghtkn { };
+  grafana-calendar-heatmap = pkgs.callPackage ./pkgs/grafana-calendar-heatmap { };
   headroom-ai = pkgs.callPackage ./pkgs/headroom-ai { };
   herdr-app = pkgs.callPackage ./pkgs/herdr-app { inherit herdr-core; };
   inherit herdr-core;

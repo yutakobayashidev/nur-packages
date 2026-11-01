@@ -15,10 +15,10 @@ stdenv.mkDerivation (finalAttrs: {
   version = "0.1.0";
 
   src = fetchFromGitHub {
-    owner = "fa0311";
+    owner = "yutakobayashidev";
     repo = "codex-limit-auto-reset";
-    rev = "a2f8db491c09d3089856d55a62388b715b9c652f";
-    hash = "sha256-OX5car1X6k4prdYvFbBHottOoPhqR7QoToVNfdrD4mo=";
+    rev = "639ef2c4f113c98ec3cda32ebcc6ef26a3826506";
+    hash = "sha256-cWQbVoiZwp0cPU6g7eho3ybTWqagLTDkfpSOUP7Rql8=";
   };
 
   pnpmDeps = fetchPnpmDeps {
@@ -61,7 +61,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   meta = {
     description = "Automatically redeem Codex rate-limit reset credits before they expire";
-    homepage = "https://github.com/fa0311/codex-limit-auto-reset";
+    homepage = "https://github.com/yutakobayashidev/codex-limit-auto-reset";
     license = lib.licenses.mit;
     mainProgram = "codex-limit-auto-reset";
     inherit (nodejs.meta) platforms;

@@ -144,6 +144,13 @@ NixOS module, remove its import and `services.codex-limit-auto-reset` system
 configuration before enabling this Home Manager module to avoid two workers
 redeeming the same account's credits.
 
+The package pins the [personal fork](https://github.com/yutakobayashidev/codex-limit-auto-reset)
+with structured JSON daemon logs. Only `credit_redemption_result` events with
+`outcome="reset"` represent confirmed resets; retry failures and other outcomes
+are separate events. The underlying scheduling and credit ID idempotency key
+remain unchanged. Authentication and raw RPC error payloads are not logged by
+the event logger.
+
 GhidraMCP 1.4 targets Ghidra 11.3.2. Compose it with the compatible Ghidra
 derivation exposed by the package:
 
@@ -158,6 +165,15 @@ extension.ghidra.withExtensions (_: [ extension ])
 clients launch the separate `ghidra-mcp-bridge` executable, pinned to upstream
 PR 123, which adds pooled HTTP connections and configurable decompilation
 timeouts.
+
+## Grafana calendar heatmap
+
+`grafana-calendar-heatmap` packages the signed Grafana catalog release of
+`tim012432-calendarheatmap-panel`. Add it to
+`services.grafana.declarativePlugins` to display daily activity as a GitHub-style
+calendar. Version 1.2.1 supports the dashboard timezone and requires Grafana
+`>=12.1.7 <12.2` or `>=12.2.5`. The package keeps the plugin signature intact;
+unsigned-plugin exceptions are not needed.
 
 ## Herdr desktop app
 
