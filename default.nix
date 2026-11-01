@@ -69,6 +69,7 @@ in
   cucumber-language-server = pkgs.callPackage ./pkgs/cucumber-language-server { };
   difit = pkgs.callPackage ./pkgs/difit { };
   fennel-ls = pkgs.callPackage ./pkgs/fennel-ls { };
+  flare-social = pkgs.callPackage ./pkgs/flare-social { };
   gctx = pkgs.callPackage ./pkgs/gctx { };
   gh-actions-language-server = pkgs.callPackage ./pkgs/gh-actions-language-server { };
   ghidra-mcp = ghidraPkgs.callPackage ./pkgs/ghidra-mcp { };

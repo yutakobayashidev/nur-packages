@@ -23,6 +23,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `course-cli`
 - `cucumber-language-server`
 - `difit`
+- `flare-social` (DimensionDev Flare social client, official AppImage, x86_64-linux)
 - `gctx`
 - `gh-actions-language-server`
 - `ghidra-mcp`
@@ -64,6 +65,13 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `waza`
 - `webforai` (webforai-cli; local HTML and URL to Markdown)
 - `xurl`
+
+## Flare social client
+
+`flare-social` wraps the official Flare 1.7.8 AppImage for `x86_64-linux`,
+including its desktop entry, icon, and `flare:` / `pixiv:` URL handlers.
+The attribute and command use `flare-social` to avoid colliding with the
+unrelated `flare` RPG in nixpkgs. Run it with `nix run .#flare-social`.
 
 ## Usage
 
