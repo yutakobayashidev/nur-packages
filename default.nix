@@ -84,6 +84,7 @@ in
   inherit jportaudio;
   katasu = pkgs.callPackage ./pkgs/katasu { };
   keifu = pkgs.callPackage ./pkgs/keifu { };
+  kohaku-cli = pkgs.callPackage ./pkgs/kohaku-cli { };
   man-pages-ja = pkgs.callPackage ./pkgs/man-pages-ja { };
   mcp-searxng = pkgs.callPackage ./pkgs/mcp-searxng { };
   nature-remo-cli = pkgs.callPackage ./pkgs/nature-remo-cli { };

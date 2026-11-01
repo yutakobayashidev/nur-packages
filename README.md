@@ -35,6 +35,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `jportaudio`
 - `katasu`
 - `keifu`
+- `kohaku-cli` (Ethereum privacy wallet CLI; command: `kohaku`)
 - `man-pages-ja`
 - `mcp-searxng`
 - `nature-remo-cli`
