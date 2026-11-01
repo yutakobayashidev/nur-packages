@@ -187,3 +187,31 @@ Its MIT license is preserved in `pkgs/herdr-app/LICENSE.packaging`. When
 updating either package, refresh the source, Ghostty submodule, Zig dependency
 and Cargo hashes together; keep core at or above the app’s
 `distribution/core-version`.
+
+## Tibo reset monitor
+
+`tibo-reset-monitor` polls the [Codex Resets public API](https://codex-resets.com/api/openapi.json)
+and sends newly tracked reset announcements to Discord. It distinguishes regular
+resets, banked reset credits, and observed events, displaying announcement/first
+observation time in Japan and US Pacific time (including daylight saving time).
+The tracker is unofficial; forecasts and scheduled resets are not consumed.
+
+```sh
+tibo-reset-monitor --state-dir /var/lib/tibo-reset-monitor \
+  --webhook-file /run/credentials/tibo-reset-monitor.service/discord-webhook
+```
+
+Run it periodically, for example with a five-minute systemd timer. Pass the
+secret webhook through a credential file, never command-line text or the Nix
+store. The first successful poll silently records all existing IDs. Later polls
+read all cursor pages, notify new IDs oldest first, and persist each successful
+Discord acknowledgement in SQLite. Preserve the state directory across upgrades;
+deleting it starts a new silent baseline. An exclusive lock prevents concurrent
+invocations from sending duplicate notices. Rate-limit backoff survives restarts.
+
+The daemon uses Discord's `wait=true` acknowledgement and does not mark failed
+sends as delivered. Delivery is still not exactly once: a crash after Discord
+accepts a message but before its ID is persisted, or a lost response, can cause
+one retry to duplicate a notice. Notifications disable mentions and quote the
+original announcement text without machine translation. No real webhook is used
+in package tests.

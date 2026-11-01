@@ -109,6 +109,7 @@ in
   symphony = pkgs.callPackage ./pkgs/symphony { };
   tunnelto = pkgs.callPackage ./pkgs/tunnelto { };
   turbowarp-desktop = pkgs.callPackage ./pkgs/turbowarp-desktop { };
+  tibo-reset-monitor = pkgs.callPackage ./pkgs/tibo-reset-monitor { };
   twitter-api-safe-mcp = pkgs.callPackage ./pkgs/twitter-api-safe-mcp { };
   nxapi = pkgs.callPackage ./pkgs/nxapi { };
   uv2nix = pkgs.callPackage ./pkgs/uv2nix { };
