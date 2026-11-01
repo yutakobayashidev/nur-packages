@@ -17,26 +17,21 @@ in
       default = pkgs.callPackage ../pkgs/codex-limit-auto-reset {
         codex = cfg.codexPackage;
       };
-      defaultText = lib.literalExpression "pkgs.codex-limit-auto-reset";
+      defaultText = lib.literalExpression "pkgs.callPackage ../pkgs/codex-limit-auto-reset { codex = cfg.codexPackage; }";
       description = "The codex-limit-auto-reset package to use.";
-    };
-
-    user = lib.mkOption {
-      type = lib.types.str;
-      description = "User whose Codex authentication is used.";
-      example = "alice";
     };
 
     codexHome = lib.mkOption {
       type = lib.types.str;
+      default = config.home.sessionVariables.CODEX_HOME or "${config.home.homeDirectory}/.codex";
+      defaultText = lib.literalExpression ''config.home.sessionVariables.CODEX_HOME or (config.home.homeDirectory + "/.codex")'';
       description = "Directory containing the user's Codex authentication.";
-      example = "/home/alice/.codex";
     };
 
     codexPackage = lib.mkOption {
       type = lib.types.package;
-      default = pkgs.codex;
-      defaultText = lib.literalExpression "pkgs.codex";
+      default = if config.programs.codex.enable then config.programs.codex.package else pkgs.codex;
+      defaultText = lib.literalExpression "if config.programs.codex.enable then config.programs.codex.package else pkgs.codex";
       description = "The Codex CLI package used to redeem credits.";
     };
 
@@ -48,28 +43,18 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    assertions = [
-      {
-        assertion = builtins.hasAttr cfg.user config.users.users;
-        message = "services.codex-limit-auto-reset.user must name an existing user";
-      }
-    ];
-
-    systemd.services.codex-limit-auto-reset = {
-      description = "Codex Limit Auto Reset";
-      wantedBy = [ "multi-user.target" ];
-      after = [ "network-online.target" ];
-      wants = [ "network-online.target" ];
-      environment = {
-        CODEX_BIN = lib.getExe cfg.codexPackage;
-        CODEX_HOME = cfg.codexHome;
-        REDEEM_BEFORE_MINUTES = toString cfg.redeemBeforeMinutes;
-      };
-      serviceConfig = {
+    systemd.user.services.codex-limit-auto-reset = {
+      Unit.Description = "Codex Limit Auto Reset";
+      Install.WantedBy = [ "default.target" ];
+      Service = {
         ExecStart = lib.getExe cfg.package;
+        Environment = [
+          "CODEX_BIN=${lib.getExe cfg.codexPackage}"
+          "CODEX_HOME=${cfg.codexHome}"
+          "REDEEM_BEFORE_MINUTES=${toString cfg.redeemBeforeMinutes}"
+        ];
         Restart = "on-failure";
         RestartSec = "10s";
-        User = cfg.user;
       };
     };
   };

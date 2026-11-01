@@ -64,6 +64,6 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://github.com/fa0311/codex-limit-auto-reset";
     license = lib.licenses.mit;
     mainProgram = "codex-limit-auto-reset";
-    inherit (codex.meta) platforms;
+    inherit (nodejs.meta) platforms;
   };
 })

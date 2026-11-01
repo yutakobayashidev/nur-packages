@@ -119,20 +119,30 @@ tokens, or other secrets in `services.twitter-api-safe-mcp.settings`.
 They use the unfree Screenpipe Commercial License; check the upstream terms
 before business or production use.
 
-`nixosModules.codex-limit-auto-reset` runs the package as the user whose Codex
-authentication it should use:
+`homeModules.codex-limit-auto-reset` runs the package as a systemd user service.
+Import it in the user's Home Manager configuration:
 
 ```nix
 {
-  imports = [ inputs.nur-packages.nixosModules.codex-limit-auto-reset ];
+  imports = [ inputs.nur-packages.homeModules.codex-limit-auto-reset ];
 
-  services.codex-limit-auto-reset = {
-    enable = true;
-    user = "alice";
-    codexHome = "/home/alice/.codex";
-  };
+  programs.codex.enable = true;
+  services.codex-limit-auto-reset.enable = true;
 }
 ```
+
+The service uses `programs.codex.package` when Codex is enabled, and otherwise
+uses `pkgs.codex`. It explicitly passes `CODEX_HOME` from
+`home.sessionVariables.CODEX_HOME`, falling back to `~/.codex` when unset.
+Override `services.codex-limit-auto-reset.codexPackage` or `codexHome` only when
+this service should use a different CLI or authentication directory.
+
+Enable `users.users.<name>.linger = true` in NixOS to start the user manager at
+boot and keep it running after logout. Inspect the service with
+`systemctl --user status codex-limit-auto-reset`. When migrating from the old
+NixOS module, remove its import and `services.codex-limit-auto-reset` system
+configuration before enabling this Home Manager module to avoid two workers
+redeeming the same account's credits.
 
 GhidraMCP 1.4 targets Ghidra 11.3.2. Compose it with the compatible Ghidra
 derivation exposed by the package:
