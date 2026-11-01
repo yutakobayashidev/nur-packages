@@ -4,7 +4,7 @@
   fetchFromGitHub,
   fetchPnpmDeps,
   nodejs,
-  pnpm_10,
+  pnpm_11,
   pnpmConfigHook,
   makeWrapper,
   chromium,
@@ -23,15 +23,15 @@ stdenv.mkDerivation (finalAttrs: {
 
   pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs) pname version src;
-    pnpm = pnpm_10;
-    hash = "sha256-1VJYs24hNkjH4BJSUMecbCNSwBgzx8Fb+ieNVVsS68Q=";
-    fetcherVersion = 3;
+    pnpm = pnpm_11;
+    hash = "sha256-lQ+Kl4+3tA6Xyse5NAMP7lYo1oyrIrOeiSNBntq2Ms8=";
+    fetcherVersion = 4;
   };
 
   nativeBuildInputs = [
     nodejs
-    pnpm_10
-    pnpmConfigHook
+    pnpm_11
+    (pnpmConfigHook.override { pnpm = pnpm_11; })
     makeWrapper
   ];
 
