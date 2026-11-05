@@ -2,6 +2,7 @@
   lib,
   stdenv,
   kernel,
+  kernelModuleMakeFlags,
   fetchFromGitHub,
 }:
 
@@ -33,16 +34,17 @@ stdenv.mkDerivation {
     EOF
   '';
 
-  makeFlags = [
-    "KVER=${kernel.modDirVersion}"
-    "KDIR=${kernel.dev}/lib/modules/${kernel.modDirVersion}/build"
+  makeFlags = kernelModuleMakeFlags ++ [
+    "-C"
+    "${kernel.dev}/lib/modules/${kernel.modDirVersion}/build"
+    "M=$(PWD)"
+    "INSTALL_MOD_PATH=${placeholder "out"}"
+    "INSTALL_MOD_DIR=misc"
   ];
 
-  installPhase = ''
-    runHook preInstall
-    install -D px4_drv.ko $out/lib/modules/${kernel.modDirVersion}/misc/px4_drv.ko
-    runHook postInstall
-  '';
+  # Use Kbuild for modules.order, signing, and the certificate aggregateModules needs.
+  buildTargets = [ "modules" ];
+  installTargets = [ "modules_install" ];
 
   meta = with lib; {
     description = "Unofficial Linux driver for PLEX PX4/PX5/PX-MLT series ISDB-T/S receivers";
