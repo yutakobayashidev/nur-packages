@@ -29,8 +29,6 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `ghidra-mcp`
 - `ghidra-mcp-bridge`
 - `git-now`
-- `herdr-app` (Linux desktop app, built from source)
-- `herdr-core` (terminal server; command: `hc`)
 - `jj-desc`
 - `jportaudio`
 - `katasu`
@@ -184,19 +182,6 @@ timeouts.
 calendar. Version 1.2.1 supports the dashboard timezone and requires Grafana
 `>=12.1.7 <12.2` or `>=12.2.5`. The package keeps the plugin signature intact;
 unsigned-plugin exceptions are not needed.
-
-## Herdr desktop app
-
-`herdr-app` includes a desktop entry and uses the packaged `herdr-core` on its
-PATH. Both build from source on Linux. The app follows the Nix support in
-[upstream PR #51](https://github.com/herdrdev/herdr-app/pull/51), pinned to its
-fork revision until that work is merged.
-
-The packaging is adapted from [lorenzorapetti/nix](https://github.com/lorenzorapetti/nix/tree/a4ce94d8b64daa2ddc5e02d3fff690b1d17ca693/modules/desktop/applications).
-Its MIT license is preserved in `pkgs/herdr-app/LICENSE.packaging`. When
-updating either package, refresh the source, Ghostty submodule, Zig dependency
-and Cargo hashes together; keep core at or above the app’s
-`distribution/core-version`.
 
 ## Tibo reset monitor
 

@@ -12,7 +12,6 @@
 }:
 
 let
-  herdr-core = pkgs.callPackage ./pkgs/herdr-core { };
   jportaudio = pkgs.callPackage ./pkgs/jportaudio { };
   screenpipeSrc = pkgs.callPackage ./pkgs/screenpipe/source.nix { };
   ghidraPkgs =
@@ -78,8 +77,6 @@ in
   ghtkn = pkgs.callPackage ./pkgs/ghtkn { };
   grafana-calendar-heatmap = pkgs.callPackage ./pkgs/grafana-calendar-heatmap { };
   headroom-ai = pkgs.callPackage ./pkgs/headroom-ai { };
-  herdr-app = pkgs.callPackage ./pkgs/herdr-app { inherit herdr-core; };
-  inherit herdr-core;
   jj-desc = pkgs.callPackage ./pkgs/jj-desc { };
   inherit jportaudio;
   katasu = pkgs.callPackage ./pkgs/katasu { };
