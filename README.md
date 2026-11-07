@@ -23,7 +23,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `course-cli`
 - `cucumber-language-server`
 - `difit`
-- `flare-social` (DimensionDev Flare social client, official AppImage, x86_64-linux)
+- `flare-social` (Flare social client, source build, x86_64-linux)
 - `gctx`
 - `gh-actions-language-server`
 - `ghidra-mcp`
@@ -67,10 +67,25 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 
 ## Flare social client
 
-`flare-social` wraps the official Flare 1.7.8 AppImage for `x86_64-linux`,
-including its desktop entry, icon, and `flare:` / `pixiv:` URL handlers.
+`flare-social` builds the tagged Flare 1.7.8 source for `x86_64-linux` with
+JDK 25 and Gradle 9.8.0. Kotlin/Native 2.4.20 is pinned separately for
+multiplatform metadata tasks. Maven dependencies, including snapshots, are pinned in
+`pkgs/flare-social/deps.json`. Maven-provided JVM and native libraries remain
+precompiled dependencies. The launcher supplies WebKitGTK and GStreamer and
+includes a desktop entry, icon, and `flare:` / `pixiv:` URL handlers.
 The attribute and command use `flare-social` to avoid colliding with the
 unrelated `flare` RPG in nixpkgs. Run it with `nix run .#flare-social`.
+
+After changing the source version or Gradle distribution, regenerate the
+manifest from this repository root, then verify a sandboxed build:
+
+```bash
+$(nix build .#flare-social.mitmCache.updateScript --no-link --print-out-paths)
+nix build .#flare-social
+```
+
+The dependency update compiles the desktop runtime and needs network access.
+Commit both the package definition and the generated manifest.
 
 ## Usage
 
