@@ -102,6 +102,7 @@ in
   tree-sitter-moonbit-grammar = pkgs.callPackage ./pkgs/tree-sitter-moonbit-grammar { };
   roots = pkgs.callPackage ./pkgs/roots { };
   s3s = pkgs.callPackage ./pkgs/s3s { };
+  shortcut-cli = pkgs.callPackage ./pkgs/shortcut-cli { };
   similarity-ts = pkgs.callPackage ./pkgs/similarity-ts { };
   skill-scanner = pkgs.callPackage ./pkgs/skill-scanner { };
   skillspector = pkgs.callPackage ./pkgs/skillspector { };
