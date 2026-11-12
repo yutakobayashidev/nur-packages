@@ -76,6 +76,7 @@ in
   git-now = pkgs.callPackage ./pkgs/git-now { };
   ghtkn = pkgs.callPackage ./pkgs/ghtkn { };
   grafana-calendar-heatmap = pkgs.callPackage ./pkgs/grafana-calendar-heatmap { };
+  homeassistant-petkit = pkgs.callPackage ./pkgs/homeassistant-petkit { };
   headroom-ai = pkgs.callPackage ./pkgs/headroom-ai { };
   jj-desc = pkgs.callPackage ./pkgs/jj-desc { };
   inherit jportaudio;
