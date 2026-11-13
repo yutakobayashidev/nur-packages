@@ -65,6 +65,12 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `webforai` (webforai-cli; local HTML and URL to Markdown)
 - `xurl`
 
+## Research and Oura MCP servers
+
+Eight pinned stdio packages cover ClinicalTrials.gov, Crossref, OpenAlex, PubMed,
+Semantic Scholar, Unpaywall, Elsevier, and Oura. See
+[package names, mcp-servers-nix usage, and verification](docs/research-mcp.md).
+
 ## Flare social client
 
 `flare-social` builds the tagged Flare 1.7.8 source for `x86_64-linux` with

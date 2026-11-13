@@ -84,6 +84,15 @@ in
   keifu = pkgs.callPackage ./pkgs/keifu { };
   kohaku-cli = pkgs.callPackage ./pkgs/kohaku-cli { };
   man-pages-ja = pkgs.callPackage ./pkgs/man-pages-ja { };
+  clinicaltrialsgov-mcp-server = pkgs.callPackage ./pkgs/clinicaltrialsgov-mcp-server { };
+  crossref-mcp-server = pkgs.callPackage ./pkgs/crossref-mcp-server { };
+  openalex-mcp-server = pkgs.callPackage ./pkgs/openalex-mcp-server { };
+  pubmed-mcp-server = pkgs.callPackage ./pkgs/pubmed-mcp-server { };
+  elsevier-mcp = pkgs.callPackage ./pkgs/elsevier-mcp { };
+  oura-mcp-server = pkgs.callPackage ./pkgs/oura-mcp-server { };
+  semanticscholar-mcp = pkgs.callPackage ./pkgs/semanticscholar-mcp { };
+  unpaywall-mcp = pkgs.callPackage ./pkgs/unpaywall-mcp { };
+
   mcp-searxng = pkgs.callPackage ./pkgs/mcp-searxng { };
   nature-remo-cli = pkgs.callPackage ./pkgs/nature-remo-cli { };
   nlobby-cli = pkgs.callPackage ./pkgs/nlobby-cli { };
