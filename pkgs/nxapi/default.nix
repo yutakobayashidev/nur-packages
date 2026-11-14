@@ -2,20 +2,20 @@
   lib,
   buildNpmPackage,
   fetchurl,
-  git,
   nodejs,
-  makeWrapper,
 }:
 buildNpmPackage rec {
   pname = "nxapi";
-  version = "1.6.1-next.254";
+  # The upstream remote config disables authentication for obsolete Coral protocols.
+  # https://github.com/samuelthomas2774/nxapi/issues/147
+  version = "1.6.1-next.257";
 
   src = fetchurl {
     url = "https://registry.npmjs.org/nxapi/-/nxapi-${version}.tgz";
-    hash = "sha256-BGEGrNhJ2qWy2AXRDH1qi2di2bUWhAhKAvsg+tQn/GM=";
+    hash = "sha256-OGrnT27G8EUNtqxTpM7KJ0HAYr4JOhbX8jv+0Bpu4Oo=";
   };
 
-  npmDepsHash = "sha256-b/A8xls+GPtz6JvtYjSGvQrrg8h4mz/R3FUonp80658=";
+  npmDepsHash = "sha256-rcJ5jow6Fm17noQHJzD1u9HaTNaCSAXLcZ58nE8ehRY=";
 
   dontNpmBuild = true;
 
