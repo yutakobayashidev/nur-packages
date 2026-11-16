@@ -1,0 +1,104 @@
+{
+  "name": "lazydsh",
+  "version": "0.2.0",
+  "description": "A lazier terminal UI for DeepSeek Harness.",
+  "keywords": [
+    "agent",
+    "cli",
+    "deepseek",
+    "dsh",
+    "harness",
+    "tui"
+  ],
+  "homepage": "https://github.com/nuskey8/lazydsh#readme",
+  "bugs": {
+    "url": "https://github.com/nuskey8/lazydsh/issues"
+  },
+  "license": "MIT",
+  "author": "nuskey8",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nuskey8/lazydsh.git"
+  },
+  "bin": {
+    "lazydsh": "dist/cli.mjs"
+  },
+  "files": [
+    "assets",
+    "dist",
+    "README.md",
+    "README.ja.md",
+    "README.zh-CN.md",
+    "LICENSE"
+  ],
+  "type": "module",
+  "exports": {
+    ".": "./dist/plugin.mjs"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prepublishOnly": "vp check && vp test run",
+    "start": "node src/cli.ts",
+    "demo": "node scripts/demo.ts",
+    "build": "vp pack",
+    "check": "vp check",
+    "test": "vp test run",
+    "prepack": "vp pack"
+  },
+  "dependencies": {
+    "@deepseek-ai/cordis": "4.1.0",
+    "@deepseek-ai/cordis-plugin-loader": "1.1.0",
+    "@deepseek-ai/dsh-agent": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-app-boot": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-attachment": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-authorization": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-base": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-client-connection": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-client-file-upload": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-cmdline": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-commands": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-credentials": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-deliverable-file-references": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-file-reference": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-file-reference-local": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-home-paths": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-http-proxy": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-jobs": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-launch-environment": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-llm": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-llm-pi-ai": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-permission-presets": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-plan-mode": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-schedule": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-session": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-session-log-export": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-session-query": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-session-title": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-skill": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-subagent": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-time-context": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-token-meter": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-tool-ask-user": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-tool-present": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-tool-schedule": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-user-approval": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-user-questions": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-working-directory": "0.2.2-rc.2",
+    "@deepseek-ai/dsh-workspace": "0.2.2-rc.2",
+    "@earendil-works/pi-ai": "1.5.2",
+    "@earendil-works/pi-tui": "1.5.2",
+    "highlight.js": "10.7.3",
+    "open": "11.0.4",
+    "zod": "4.6.6"
+  },
+  "overrides": {
+    "@modelcontextprotocol/client": "2.3.0",
+    "fflate": "0.8.3",
+    "undici": "8.12.2"
+  },
+  "engines": {
+    "node": ">=24.9.0"
+  }
+}

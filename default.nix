@@ -80,6 +80,7 @@ in
   headroom-ai = pkgs.callPackage ./pkgs/headroom-ai { };
   jj-desc = pkgs.callPackage ./pkgs/jj-desc { };
   inherit jportaudio;
+  lazydsh = pkgs.callPackage ./pkgs/lazydsh { };
   katasu = pkgs.callPackage ./pkgs/katasu { };
   keifu = pkgs.callPackage ./pkgs/keifu { };
   kohaku-cli = pkgs.callPackage ./pkgs/kohaku-cli { };
