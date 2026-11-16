@@ -26,6 +26,7 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `flare-social` (Flare social client, source build, x86_64-linux)
 - `gctx`
 - `gh-actions-language-server`
+- `ghidra-cli`
 - `ghidra-mcp`
 - `ghidra-mcp-bridge`
 - `git-now`
@@ -235,3 +236,12 @@ in package tests.
 ## Agent Desktop
 
 Run `nix run .#agent-desktop -- version` to check the CLI. Linux desktop access requires an active graphical user session with AT-SPI enabled (`services.gnome.at-spi2-core.enable` on NixOS). The package includes its clipboard-owner helper and supplies `wl-clipboard` on PATH. Semantic accessibility actions work on X11 and Wayland; Wayland pointer input and native window control are unsupported, and Wayland keyboard input requires GNOME Mutter. Wayland screenshots require a suitable desktop portal. See the [upstream installation guide](https://github.com/vercel-labs/agent-desktop/blob/v1.0.2/docs/install.md) for platform details.
+
+### Ghidra CLI
+
+`ghidra-cli` builds toratako/ghidra-cli from pinned Rust source and supplies Ghidra
+and a full JDK through its launcher. `ghidra-cli doctor --runtime` checks the
+actual headless bridge. Consumers can use `ghidra-cli.skillSource` as an
+agent-skills-nix source root to keep the official skill and executable on the
+same revision. Override `GHIDRA_INSTALL_DIR` / `GHIDRA_CLI_JAVA_HOME` explicitly
+when another compatible runtime is required.

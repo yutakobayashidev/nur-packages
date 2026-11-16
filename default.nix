@@ -71,6 +71,7 @@ in
   flare-social = pkgs.callPackage ./pkgs/flare-social { };
   gctx = pkgs.callPackage ./pkgs/gctx { };
   gh-actions-language-server = pkgs.callPackage ./pkgs/gh-actions-language-server { };
+  ghidra-cli = pkgs.callPackage ./pkgs/ghidra-cli { };
   ghidra-mcp = ghidraPkgs.callPackage ./pkgs/ghidra-mcp { };
   ghidra-mcp-bridge = pkgs.callPackage ./pkgs/ghidra-mcp-bridge { };
   git-now = pkgs.callPackage ./pkgs/git-now { };
