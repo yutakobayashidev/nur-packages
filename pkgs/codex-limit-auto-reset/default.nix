@@ -17,8 +17,8 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "yutakobayashidev";
     repo = "codex-limit-auto-reset";
-    rev = "639ef2c4f113c98ec3cda32ebcc6ef26a3826506";
-    hash = "sha256-cWQbVoiZwp0cPU6g7eho3ybTWqagLTDkfpSOUP7Rql8=";
+    rev = "1b94b229df0f84e7aebd9ef4d3bfb63d063ae665";
+    hash = "sha256-PyKqsNQe46aZ/z5LEbPpntmH/OgkTVpOKrvdiRArEqU=";
   };
 
   pnpmDeps = fetchPnpmDeps {
