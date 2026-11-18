@@ -245,3 +245,10 @@ actual headless bridge. Consumers can use `ghidra-cli.skillSource` as an
 agent-skills-nix source root to keep the official skill and executable on the
 same revision. Override `GHIDRA_INSTALL_DIR` / `GHIDRA_CLI_JAVA_HOME` explicitly
 when another compatible runtime is required.
+
+The package and Home Manager module definitions now live in
+[codex-limit-auto-reset](https://github.com/yutakobayashidev/codex-limit-auto-reset).
+The NUR exports remain as compatibility imports of a pinned project revision.
+New consumers should use the project's `packages.${system}.default` and
+`homeManagerModules.default` directly. Upstreaming is tracked in
+[fa0311/codex-limit-auto-reset#3](https://github.com/fa0311/codex-limit-auto-reset/pull/3).
