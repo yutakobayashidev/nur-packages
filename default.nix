@@ -63,6 +63,7 @@ in
   codex-limit-auto-reset = pkgs.callPackage ./pkgs/codex-limit-auto-reset { };
   codex-security = pkgs.callPackage ./pkgs/codex-security { };
   codexbar-waybar = pkgs.callPackage ./pkgs/codexbar-waybar { };
+  dsh-codex-subscription = pkgs.callPackage ./pkgs/dsh-codex-subscription { };
   continues = pkgs.callPackage ./pkgs/continues { };
   course-cli = pkgs.callPackage ./pkgs/course-cli { };
   cucumber-language-server = pkgs.callPackage ./pkgs/cucumber-language-server { };

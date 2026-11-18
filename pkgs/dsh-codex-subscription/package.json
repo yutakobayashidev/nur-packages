@@ -1,0 +1,86 @@
+{
+  "name": "dsh-codex-subscription",
+  "version": "3.2.24",
+  "description": "Use ChatGPT and Codex subscriptions in DeepSeek Harness with OAuth, quota, safe resets, web search, images and Fast mode, and control DSH from the ChatGPT mobile app (Beta)",
+  "type": "module",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "lib/*.js",
+    "native/linux-voice-helper.py",
+    "locale/*.json",
+    "docs/plugin/*.md",
+    "cordis.patch.yml",
+    "README*.md",
+    "DIRECTORY.md",
+    "compatibility.json",
+    "LICENSE",
+    "SECURITY.md",
+    "THIRD_PARTY_NOTICES.md",
+    "icon-subscription.webp"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-api-remotes",
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-model-selection",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-tool"
+      ],
+      "platform": "web"
+    }
+  },
+  "keywords": [
+    "dsh-plugin",
+    "deepseek",
+    "deepseek-harness",
+    "dsh",
+    "openai-codex",
+    "chatgpt-oauth",
+    "chatgpt",
+    "chatgpt-plus",
+    "subscription",
+    "quota",
+    "quota-reset",
+    "fast-mode",
+    "usage",
+    "oauth",
+    "web-search",
+    "image-generation"
+  ],
+  "author": "WSL043",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WSL043/dsh-codex-subscription.git"
+  },
+  "bugs": {
+    "url": "https://github.com/WSL043/dsh-codex-subscription/issues"
+  },
+  "homepage": "https://github.com/WSL043/dsh-codex-subscription",
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0",
+    "dsh": "0.1.7-rc.2 || 0.2.0-rc.1 || 0.2.0-rc.2 || 0.2.1-alpha.1 || 0.2.1-alpha.2 || 0.2.1-alpha.3 || 0.2.1-alpha.4 || 0.2.1-alpha.5 || 0.2.1-rc.1 || 0.2.1-rc.2 || 0.2.1-rc.3 || 0.2.1-rc.4 || 0.2.1-rc.5 || 0.2.2-alpha.2 || 0.2.2-alpha.3 || >=0.2.2-rc.1 <0.2.3-0"
+  },
+  "dependencies": {
+    "https-proxy-agent": "7.0.6",
+    "undici": "7.30.2",
+    "ws": "8.21.3"
+  },
+  "icon": "./icon-subscription.webp"
+}
