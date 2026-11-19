@@ -47,6 +47,7 @@ in
   gh-actions-language-server = pkgs.callPackage ./pkgs/gh-actions-language-server { };
   git-now = pkgs.callPackage ./pkgs/git-now { };
   ghtkn = pkgs.callPackage ./pkgs/ghtkn { };
+  herdr-symphony = pkgs.callPackage ./pkgs/herdr-symphony { };
   hermes = pkgs.callPackage ./pkgs/hermes { };
   headroom-ai = pkgs.callPackage ./pkgs/headroom-ai { };
   jj-desc = pkgs.callPackage ./pkgs/jj-desc { };
