@@ -1,9 +1,9 @@
 {
   lib,
-  buildGo125Module,
+  buildGo126Module,
   fetchFromGitHub,
 }:
-buildGo125Module rec {
+buildGo126Module rec {
   pname = "bumblebee";
   version = "0.1.1";
 

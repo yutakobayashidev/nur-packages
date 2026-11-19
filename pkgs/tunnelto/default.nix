@@ -2,16 +2,9 @@
   lib,
   rustPlatform,
   fetchFromGitHub,
-  openssl_1_1,
+  openssl,
   pkg-config,
 }:
-let
-  openssl_1_1' = openssl_1_1.overrideAttrs (old: {
-    meta = old.meta // {
-      knownVulnerabilities = [ ];
-    };
-  });
-in
 rustPlatform.buildRustPackage rec {
   pname = "tunnelto";
   version = "0.1.18";
@@ -23,11 +16,13 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-dCHl5EXjUagOKeHxqb3GlAoSDw0u3tQ4GKEtbFF8OSs=";
   };
 
-  cargoHash = "sha256-Q2uRUekpjhe98Bgn8p8OEGlefe4gO/2qT5nzd5F2VNU=";
+  # Refresh the TLS crates for supported OpenSSL 3 without changing upstream code.
+  cargoPatches = [ ./openssl3.patch ];
+  cargoHash = "sha256-ip10wQoNJKjP5wHCQC+LTq9K9CXtQgOJ9NXv1ZehPPo=";
 
   nativeBuildInputs = [ pkg-config ];
 
-  buildInputs = [ openssl_1_1' ];
+  buildInputs = [ openssl ];
 
   buildAndTestSubdir = "tunnelto";
 

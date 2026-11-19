@@ -13,10 +13,30 @@
 
 let
   jportaudio = pkgs.callPackage ./pkgs/jportaudio { };
+  screenpipeSrc = pkgs.callPackage ./pkgs/screenpipe/source.nix { };
+  ghidraPkgs =
+    import
+      (builtins.fetchTarball {
+        url = "https://github.com/NixOS/nixpkgs/archive/cff659446eccd532661ea86f0caec4d7f0a8722f.tar.gz";
+        sha256 = "sha256-omRUecyvaOtmQuX25CUN7Iwe+9xT/NwLZLmhP7THC6k=";
+      })
+      {
+        system = pkgs.stdenv.hostPlatform.system;
+      };
   acacCliPlatforms = [
     "aarch64-darwin"
     "aarch64-linux"
     "x86_64-darwin"
+    "x86_64-linux"
+  ];
+  xurlPlatforms = [
+    "aarch64-darwin"
+    "aarch64-linux"
+    "x86_64-darwin"
+    "x86_64-linux"
+  ];
+  beeperCliPlatforms = [
+    "aarch64-linux"
     "x86_64-linux"
   ];
 in
@@ -25,58 +45,103 @@ in
   # `darwinModules` and `flakeModules` names are special
   lib = import ./lib { inherit pkgs; }; # functions
   nixosModules = import ./nixos-modules; # NixOS modules
-  # homeModules = { }; # Home Manager modules
+  homeModules = import ./home-modules; # Home Manager modules
   # darwinModules = { }; # nix-darwin modules
   # flakeModules = { }; # flake-parts modules
   overlays = import ./overlays; # nixpkgs overlays
 
   aclogin = pkgs.callPackage ./pkgs/aclogin { };
+  agent-desktop = pkgs.callPackage ./pkgs/agent-desktop { };
   agent-scan = pkgs.callPackage ./pkgs/agent-scan { };
   atcoder-cli = pkgs.callPackage ./pkgs/atcoder-cli { };
   beatoraja = pkgs.callPackage ./pkgs/beatoraja { inherit jportaudio; };
   before-and-after = pkgs.callPackage ./pkgs/before-and-after { };
   bit-vcs = pkgs.callPackage ./pkgs/bit-vcs { };
   bumblebee = pkgs.callPackage ./pkgs/bumblebee { };
+  buzz-acp = pkgs.callPackage ./pkgs/buzz-acp { };
+  cccc-moznion = pkgs.callPackage ./pkgs/cccc-moznion { };
+  codex-limit-auto-reset = pkgs.callPackage ./pkgs/codex-limit-auto-reset { };
+  codex-security = pkgs.callPackage ./pkgs/codex-security { };
+  codexbar-waybar = pkgs.callPackage ./pkgs/codexbar-waybar { };
+  dsh-codex-subscription = pkgs.callPackage ./pkgs/dsh-codex-subscription { };
   continues = pkgs.callPackage ./pkgs/continues { };
   course-cli = pkgs.callPackage ./pkgs/course-cli { };
   cucumber-language-server = pkgs.callPackage ./pkgs/cucumber-language-server { };
-  defuddle = pkgs.callPackage ./pkgs/defuddle { };
   difit = pkgs.callPackage ./pkgs/difit { };
   fennel-ls = pkgs.callPackage ./pkgs/fennel-ls { };
+  flare-social = pkgs.callPackage ./pkgs/flare-social { };
   gctx = pkgs.callPackage ./pkgs/gctx { };
   gh-actions-language-server = pkgs.callPackage ./pkgs/gh-actions-language-server { };
+  ghidra-cli = pkgs.callPackage ./pkgs/ghidra-cli { };
+  ghidra-mcp = ghidraPkgs.callPackage ./pkgs/ghidra-mcp { };
+  ghidra-mcp-bridge = pkgs.callPackage ./pkgs/ghidra-mcp-bridge { };
   git-now = pkgs.callPackage ./pkgs/git-now { };
   ghtkn = pkgs.callPackage ./pkgs/ghtkn { };
+  grafana-calendar-heatmap = pkgs.callPackage ./pkgs/grafana-calendar-heatmap { };
   herdr-symphony = pkgs.callPackage ./pkgs/herdr-symphony { };
-  hermes = pkgs.callPackage ./pkgs/hermes { };
+  homeassistant-petkit = pkgs.callPackage ./pkgs/homeassistant-petkit { };
   headroom-ai = pkgs.callPackage ./pkgs/headroom-ai { };
   jj-desc = pkgs.callPackage ./pkgs/jj-desc { };
   inherit jportaudio;
+  lazydsh = pkgs.callPackage ./pkgs/lazydsh { };
   katasu = pkgs.callPackage ./pkgs/katasu { };
   keifu = pkgs.callPackage ./pkgs/keifu { };
+  kohaku-cli = pkgs.callPackage ./pkgs/kohaku-cli { };
   man-pages-ja = pkgs.callPackage ./pkgs/man-pages-ja { };
+  clinicaltrialsgov-mcp-server = pkgs.callPackage ./pkgs/clinicaltrialsgov-mcp-server { };
+  crossref-mcp-server = pkgs.callPackage ./pkgs/crossref-mcp-server { };
+  openalex-mcp-server = pkgs.callPackage ./pkgs/openalex-mcp-server { };
+  pubmed-mcp-server = pkgs.callPackage ./pkgs/pubmed-mcp-server { };
+  elsevier-mcp = pkgs.callPackage ./pkgs/elsevier-mcp { };
+  oura-mcp-server = pkgs.callPackage ./pkgs/oura-mcp-server { };
+  semanticscholar-mcp = pkgs.callPackage ./pkgs/semanticscholar-mcp { };
+  unpaywall-mcp = pkgs.callPackage ./pkgs/unpaywall-mcp { };
+
+  mcp-searxng = pkgs.callPackage ./pkgs/mcp-searxng { };
+  nature-remo-cli = pkgs.callPackage ./pkgs/nature-remo-cli { };
   nlobby-cli = pkgs.callPackage ./pkgs/nlobby-cli { };
+  oracle = pkgs.callPackage ./pkgs/oracle { };
   opensrc = pkgs.callPackage ./pkgs/opensrc { };
+  pi-acp = pkgs.callPackage ./pkgs/pi-acp { };
   polycat = pkgs.callPackage ./pkgs/polycat { };
   pretty-ts-errors-markdown = pkgs.callPackage ./pkgs/pretty-ts-errors-markdown { };
+  ptrlib = pkgs.callPackage ./pkgs/ptrlib { };
   pyproject-build-systems = pkgs.callPackage ./pkgs/pyproject-build-systems { };
   pyproject-nix = pkgs.callPackage ./pkgs/pyproject-nix { };
   readout = pkgs.callPackage ./pkgs/readout { };
+  rinkaku = pkgs.callPackage ./pkgs/rinkaku { };
+  screenpipe-app = pkgs.callPackage ./pkgs/screenpipe/app.nix { inherit screenpipeSrc; };
+  screenpipe-cli = pkgs.callPackage ./pkgs/screenpipe/cli.nix { inherit screenpipeSrc; };
   tfmv = pkgs.callPackage ./pkgs/tfmv { };
   tree-sitter-moonbit-grammar = pkgs.callPackage ./pkgs/tree-sitter-moonbit-grammar { };
   roots = pkgs.callPackage ./pkgs/roots { };
   s3s = pkgs.callPackage ./pkgs/s3s { };
+  shortcut-cli = pkgs.callPackage ./pkgs/shortcut-cli { };
   similarity-ts = pkgs.callPackage ./pkgs/similarity-ts { };
   skill-scanner = pkgs.callPackage ./pkgs/skill-scanner { };
   skillspector = pkgs.callPackage ./pkgs/skillspector { };
   symphony = pkgs.callPackage ./pkgs/symphony { };
   tunnelto = pkgs.callPackage ./pkgs/tunnelto { };
+  turbowarp-desktop = pkgs.callPackage ./pkgs/turbowarp-desktop { };
+  tibo-reset-monitor = pkgs.callPackage ./pkgs/tibo-reset-monitor { };
+  twitter-api-safe-mcp = pkgs.callPackage ./pkgs/twitter-api-safe-mcp { };
   nxapi = pkgs.callPackage ./pkgs/nxapi { };
   uv2nix = pkgs.callPackage ./pkgs/uv2nix { };
   pike = pkgs.callPackage ./pkgs/pike { };
+  webforai = pkgs.callPackage ./pkgs/webforai { };
   whichllm = pkgs.callPackage ./pkgs/whichllm { };
   waza = pkgs.callPackage ./pkgs/waza { };
 }
 // pkgs.lib.optionalAttrs (pkgs.lib.elem pkgs.stdenv.hostPlatform.system acacCliPlatforms) {
   acac-cli = pkgs.callPackage ./pkgs/acac-cli { };
+}
+// pkgs.lib.optionalAttrs (pkgs.lib.elem pkgs.stdenv.hostPlatform.system xurlPlatforms) {
+  xurl = pkgs.callPackage ./pkgs/xurl { };
+}
+// pkgs.lib.optionalAttrs (pkgs.lib.elem pkgs.stdenv.hostPlatform.system beeperCliPlatforms) {
+  beeper-cli = pkgs.callPackage ./pkgs/beeper-cli { };
+}
+// pkgs.lib.optionalAttrs (pkgs.stdenv.hostPlatform.system == "x86_64-linux") {
+  beeper-server = pkgs.callPackage ./pkgs/beeper-server { };
+  buzz = pkgs.callPackage ./pkgs/buzz { };
 }

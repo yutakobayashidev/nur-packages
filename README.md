@@ -6,31 +6,52 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 
 - `acac-cli`
 - `aclogin`
+- `agent-desktop` (Linux desktop automation CLI, built from source; includes clipboard helper)
 - `atcoder-cli`
 - `beatoraja`
+- `beeper-cli`
+- `beeper-server` (headless nightly, x86_64-linux)
 - `bit-vcs`
 - `bumblebee`
+- `buzz`
+- `buzz-acp`
+- `cccc-moznion` (moznion's complexity analyzer; command: `cccc`)
+- `codex-limit-auto-reset`
+- `codex-security`
+- `codexbar-waybar`
 - `continues`
 - `course-cli`
 - `cucumber-language-server`
-- `defuddle`
 - `difit`
+- `flare-social` (Flare social client, source build, x86_64-linux)
 - `gctx`
 - `gh-actions-language-server`
+- `ghidra-cli`
+- `ghidra-mcp`
+- `ghidra-mcp-bridge`
 - `git-now`
 - `jj-desc`
 - `jportaudio`
 - `katasu`
 - `keifu`
+- `kohaku-cli` (Ethereum privacy wallet CLI; command: `kohaku`)
 - `man-pages-ja`
+- `mcp-searxng`
+- `nature-remo-cli`
 - `nlobby-cli`
+- `oracle`
 - `opensrc`
+- `pi-acp`
 - `polycat`
 - `pretty-ts-errors-markdown`
+- `ptrlib`
 - `pyproject-build-systems`
 - `pyproject-nix`
 - `readout`
+- `rinkaku`
 - `roots`
+- `screenpipe-app`
+- `screenpipe-cli`
 - `tfmv`
 - `tree-sitter-moonbit-grammar`
 - `similarity-ts`
@@ -38,9 +59,196 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 - `skillspector`
 - `symphony`
 - `tunnelto`
+- `turbowarp-desktop`
+- `twitter-api-safe-mcp`
 - `uv2nix`
 - `waza`
+- `webforai` (webforai-cli; local HTML and URL to Markdown)
+- `xurl`
+
+## Research and Oura MCP servers
+
+Eight pinned stdio packages cover ClinicalTrials.gov, Crossref, OpenAlex, PubMed,
+Semantic Scholar, Unpaywall, Elsevier, and Oura. See
+[package names, mcp-servers-nix usage, and verification](docs/research-mcp.md).
+
+## Flare social client
+
+`flare-social` builds the tagged Flare 1.7.8 source for `x86_64-linux` with
+JDK 25 and Gradle 9.8.0. Kotlin/Native 2.4.20 is pinned separately for
+multiplatform metadata tasks. Maven dependencies, including snapshots, are pinned in
+`pkgs/flare-social/deps.json`. Maven-provided JVM and native libraries remain
+precompiled dependencies. The launcher supplies WebKitGTK and GStreamer and
+includes a desktop entry, icon, and `flare:` / `pixiv:` URL handlers.
+The attribute and command use `flare-social` to avoid colliding with the
+unrelated `flare` RPG in nixpkgs. Run it with `nix run .#flare-social`.
+
+After changing the source version or Gradle distribution, regenerate the
+manifest from this repository root, then verify a sandboxed build:
+
+```bash
+$(nix build .#flare-social.mitmCache.updateScript --no-link --print-out-paths)
+nix build .#flare-social
+```
+
+The dependency update compiles the desktop runtime and needs network access.
+Commit both the package definition and the generated manifest.
 
 ## Usage
 
 Import this repo through NUR or use [overlay.nix](./overlay.nix) as a nixpkgs overlay.
+
+`ptrlib` is a Python library rather than a command-line application. Add it to
+a Python environment when consuming the overlay:
+
+```nix
+pkgs.python3.withPackages (_: [ pkgs.ptrlib ])
+```
+
+Run `twitter-api-safe-mcp /path/to/settings.json` to start the Twitter/X MCP
+server. Stdio clients must set `"mcp": { "transport": "stdio" }` in that
+settings file. Configure a system browser executable or CDP endpoint in the
+profile settings; browser binaries are not bundled with the package.
+
+`beeper-cli` installs the command as `beeper-cli` so it can coexist with the
+`beeper` desktop package. Beeper Desktop already includes its MCP server; no
+separate MCP package is needed.
+
+`beeper-server` packages the headless Client API server for `x86_64-linux`,
+pinned to nightly version `4.3.149`. It can run without Beeper Desktop. Manage
+its service and persistent data directory separately; the package does not
+perform login or install a service.
+
+The flake also exports `nixosModules.twitter-api-safe-mcp`, which generates the
+settings file and runs the package as a native systemd service:
+
+```nix
+{
+  imports = [ inputs.nur-packages.nixosModules.twitter-api-safe-mcp ];
+
+  services.twitter-api-safe-mcp = {
+    enable = true;
+    settings.profiles = [
+      {
+        name = "account1";
+        browser = {
+          type = "cdp";
+          browserType = "chromium";
+          cdpEndpoint = "http://127.0.0.1:9224";
+        };
+      }
+    ];
+  };
+}
+```
+
+The generated settings file is stored in the Nix store. Do not put passwords,
+tokens, or other secrets in `services.twitter-api-safe-mcp.settings`.
+
+`screenpipe-app` and `screenpipe-cli` are built from the pinned upstream source.
+They use the unfree Screenpipe Commercial License; check the upstream terms
+before business or production use.
+
+`homeModules.codex-limit-auto-reset` runs the package as a systemd user service.
+Import it in the user's Home Manager configuration:
+
+```nix
+{
+  imports = [ inputs.nur-packages.homeModules.codex-limit-auto-reset ];
+
+  programs.codex.enable = true;
+  services.codex-limit-auto-reset.enable = true;
+}
+```
+
+The service uses `programs.codex.package` when Codex is enabled, and otherwise
+uses `pkgs.codex`. It explicitly passes `CODEX_HOME` from
+`home.sessionVariables.CODEX_HOME`, falling back to `~/.codex` when unset.
+Override `services.codex-limit-auto-reset.codexPackage` or `codexHome` only when
+this service should use a different CLI or authentication directory.
+
+Enable `users.users.<name>.linger = true` in NixOS to start the user manager at
+boot and keep it running after logout. Inspect the service with
+`systemctl --user status codex-limit-auto-reset`. When migrating from the old
+NixOS module, remove its import and `services.codex-limit-auto-reset` system
+configuration before enabling this Home Manager module to avoid two workers
+redeeming the same account's credits.
+
+The package pins the [personal fork](https://github.com/yutakobayashidev/codex-limit-auto-reset)
+with structured JSON daemon logs. Only `credit_redemption_result` events with
+`outcome="reset"` represent confirmed resets; retry failures and other outcomes
+are separate events. The underlying scheduling and credit ID idempotency key
+remain unchanged. Authentication and raw RPC error payloads are not logged by
+the event logger.
+
+GhidraMCP 1.4 targets Ghidra 11.3.2. Compose it with the compatible Ghidra
+derivation exposed by the package:
+
+```nix
+let
+  extension = pkgs.ghidra-mcp;
+in
+extension.ghidra.withExtensions (_: [ extension ])
+```
+
+`ghidra-mcp` provides the official 1.4 extension loaded into Ghidra. MCP
+clients launch the separate `ghidra-mcp-bridge` executable, pinned to upstream
+PR 123, which adds pooled HTTP connections and configurable decompilation
+timeouts.
+
+## Grafana calendar heatmap
+
+`grafana-calendar-heatmap` packages the signed Grafana catalog release of
+`tim012432-calendarheatmap-panel`. Add it to
+`services.grafana.declarativePlugins` to display daily activity as a GitHub-style
+calendar. Version 1.2.1 supports the dashboard timezone and requires Grafana
+`>=12.1.7 <12.2` or `>=12.2.5`. The package keeps the plugin signature intact;
+unsigned-plugin exceptions are not needed.
+
+## Tibo reset monitor
+
+`tibo-reset-monitor` polls the [Codex Resets public API](https://codex-resets.com/api/openapi.json)
+and sends newly tracked reset announcements to Discord. It distinguishes regular
+resets, banked reset credits, and observed events, displaying announcement/first
+observation time in Japan and US Pacific time (including daylight saving time).
+The tracker is unofficial; forecasts and scheduled resets are not consumed.
+
+```sh
+tibo-reset-monitor --state-dir /var/lib/tibo-reset-monitor \
+  --webhook-file /run/credentials/tibo-reset-monitor.service/discord-webhook
+```
+
+Run it periodically, for example with a five-minute systemd timer. Pass the
+secret webhook through a credential file, never command-line text or the Nix
+store. The first successful poll silently records all existing IDs. Later polls
+read all cursor pages, notify new IDs oldest first, and persist each successful
+Discord acknowledgement in SQLite. Preserve the state directory across upgrades;
+deleting it starts a new silent baseline. An exclusive lock prevents concurrent
+invocations from sending duplicate notices. Rate-limit backoff survives restarts.
+
+The daemon uses Discord's `wait=true` acknowledgement and does not mark failed
+sends as delivered. Delivery is still not exactly once: a crash after Discord
+accepts a message but before its ID is persisted, or a lost response, can cause
+one retry to duplicate a notice. Notifications disable mentions and quote the
+original announcement text without machine translation. No real webhook is used
+in package tests.
+
+## Agent Desktop
+
+Run `nix run .#agent-desktop -- version` to check the CLI. Linux desktop access requires an active graphical user session with AT-SPI enabled (`services.gnome.at-spi2-core.enable` on NixOS). The package includes its clipboard-owner helper and supplies `wl-clipboard` on PATH. Semantic accessibility actions work on X11 and Wayland; Wayland pointer input and native window control are unsupported, and Wayland keyboard input requires GNOME Mutter. Wayland screenshots require a suitable desktop portal. See the [upstream installation guide](https://github.com/vercel-labs/agent-desktop/blob/v1.0.2/docs/install.md) for platform details.
+
+### Ghidra CLI
+
+`ghidra-cli` builds toratako/ghidra-cli from pinned Rust source and supplies Ghidra
+and a full JDK through its launcher. `ghidra-cli doctor --runtime` checks the
+actual headless bridge. Consumers can use `ghidra-cli.skillSource` as an
+agent-skills-nix source root to keep the official skill and executable on the
+same revision. Override `GHIDRA_INSTALL_DIR` / `GHIDRA_CLI_JAVA_HOME` explicitly
+when another compatible runtime is required.
+
+The package and Home Manager module definitions now live in
+[codex-limit-auto-reset](https://github.com/yutakobayashidev/codex-limit-auto-reset).
+The NUR exports remain as compatibility imports of a pinned project revision.
+New consumers should use the project's `packages.${system}.default` and
+`homeManagerModules.default` directly. Upstreaming is tracked in
+[fa0311/codex-limit-auto-reset#3](https://github.com/fa0311/codex-limit-auto-reset/pull/3).
