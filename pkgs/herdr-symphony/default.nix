@@ -14,8 +14,8 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "yutakobayashidev";
     repo = "herdr-symphony";
-    rev = "b74d05f6096eb10ef91a28eb017f10a3737e4a57";
-    hash = "sha256-V8trV3abg2NAfHWi09VceK1G22kuhkIdjSkJjbFtG1g=";
+    rev = "dcf0aa332ff1639ee9cee40d395de4b56fc49d82";
+    hash = "sha256-Qf79u6wdq2TEuCpuIUujDmdLI5D/7VWHqzcop94nTkU=";
   };
 
   nodeModules = stdenvNoCC.mkDerivation {
