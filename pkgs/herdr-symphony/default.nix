@@ -9,13 +9,13 @@
 
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "herdr-symphony";
-  version = "0-unstable-2026-11-19";
+  version = "0-unstable-2026-11-20";
 
   src = fetchFromGitHub {
     owner = "yutakobayashidev";
     repo = "herdr-symphony";
-    rev = "5e76f66b8887354f89cf82f991fb76f96b40b8bd";
-    hash = "sha256-6C4/qbgzc9KeJeHk4gwu7Vgbn2w7+/Ud5eEbH07q1uQ=";
+    rev = "bd67ade38c70df25fbb3516238671f4ca8844d20";
+    hash = "sha256-NONumqejzxwjqLCJm+sBkKA/reVbprV/6/SJzB9xBI8=";
   };
 
   nodeModules = stdenvNoCC.mkDerivation {
